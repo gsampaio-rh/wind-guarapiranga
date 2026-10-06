@@ -1,0 +1,21 @@
+---
+description: Testing patterns and strategies for Python projects
+globs: ["**/test*.py", "**/tests/**/*.py"]
+alwaysApply: false
+---
+
+# Testing Patterns
+
+## Pytest
+- Name: `test_<fn>_<scenario>_<expected>`; plain `assert`; fixtures over `setUp`
+- Parametrize multi-input cases; shared fixtures in nearest `conftest.py`
+- Mock time/random/network/LLM — never hit real LLM APIs in unit tests
+
+## Quality
+- Deterministic and isolated; unit tests under 100ms; prefer behavior over internals
+- Cover happy path **and** failure/edge cases (null, empty, boundaries)
+- Aim ~80%+ coverage on domain logic; pin seeds for ML (`random_state` / `np.random.seed`)
+
+## This repo
+- Harness/hook tests live under `tests/eval/`; run `make eval-fast` for local gates
+- Prefer integration-style hook tests over pure mocks when behavior is shell I/O

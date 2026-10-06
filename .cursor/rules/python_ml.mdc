@@ -1,0 +1,25 @@
+---
+description: Python best practices, pandas patterns, ML conventions, and Jupyter notebook standards
+globs: ["**/*.ipynb", "notebooks/**/*.py", "experiments/**/*.py", "analysis/**/*.py"]
+alwaysApply: false
+---
+
+# Python & ML Patterns
+
+## Python (this stack)
+- Type hints on public signatures; prefer Pydantic/TypedDict at boundaries; avoid `Any`
+- Ruff for lint/format; Google-style docstrings on public APIs
+- Specific exceptions + context; `with` for resources; async only for I/O (no blocking in async)
+
+## Pandas
+- Vectorize; `.loc`/`.iloc` (no chained `[][]`); method-chain transforms; `.copy()` on slices
+- Categoricals for low-cardinality strings; select columns early; set dtypes on read
+
+## ML
+- Pin seeds (`random_state`); YAML experiment config committed with results
+- Temporal splits for time series — never random-split the future into train
+- No target/future leakage; log params/metrics/artifacts
+
+## Notebooks
+- Markdown WHY before HOW; one logical op per cell; restart-and-run-all before commit
+- `pathlib` relative paths; plots: whitegrid, DPI 150, tight bbox

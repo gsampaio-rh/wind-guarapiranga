@@ -1,0 +1,994 @@
+[
+  {
+    "id": "brisa-sudeste",
+    "nome": "Brisa de sudeste",
+    "data": "2026-04-11",
+    "modelo": "era5",
+    "horas": [
+      {
+        "velocidade": 3.8,
+        "direcao": 113,
+        "rajada": 6.4,
+        "temperatura": 16,
+        "umidade": 93,
+        "nuvens": 19,
+        "chuva": 0,
+        "codigo": 0
+      },
+      {
+        "velocidade": 3.2,
+        "direcao": 110,
+        "rajada": 5.4,
+        "temperatura": 15.6,
+        "umidade": 96,
+        "nuvens": 9,
+        "chuva": 0,
+        "codigo": 0
+      },
+      {
+        "velocidade": 2.8,
+        "direcao": 112,
+        "rajada": 5.6,
+        "temperatura": 15.2,
+        "umidade": 97,
+        "nuvens": 10,
+        "chuva": 0,
+        "codigo": 0
+      },
+      {
+        "velocidade": 2.7,
+        "direcao": 118,
+        "rajada": 5.4,
+        "temperatura": 15.2,
+        "umidade": 97,
+        "nuvens": 7,
+        "chuva": 0,
+        "codigo": 0
+      },
+      {
+        "velocidade": 2.7,
+        "direcao": 123,
+        "rajada": 6,
+        "temperatura": 14.8,
+        "umidade": 97,
+        "nuvens": 1,
+        "chuva": 0,
+        "codigo": 0
+      },
+      {
+        "velocidade": 3.2,
+        "direcao": 129,
+        "rajada": 6.2,
+        "temperatura": 14.6,
+        "umidade": 98,
+        "nuvens": 1,
+        "chuva": 0,
+        "codigo": 0
+      },
+      {
+        "velocidade": 3.5,
+        "direcao": 128,
+        "rajada": 6.4,
+        "temperatura": 14.7,
+        "umidade": 98,
+        "nuvens": 2,
+        "chuva": 0,
+        "codigo": 0
+      },
+      {
+        "velocidade": 4.5,
+        "direcao": 109,
+        "rajada": 6.2,
+        "temperatura": 16.8,
+        "umidade": 95,
+        "nuvens": 5,
+        "chuva": 0,
+        "codigo": 0
+      },
+      {
+        "velocidade": 5,
+        "direcao": 108,
+        "rajada": 9.9,
+        "temperatura": 18.6,
+        "umidade": 84,
+        "nuvens": 2,
+        "chuva": 0,
+        "codigo": 0
+      },
+      {
+        "velocidade": 7,
+        "direcao": 104,
+        "rajada": 13.6,
+        "temperatura": 20,
+        "umidade": 75,
+        "nuvens": 4,
+        "chuva": 0,
+        "codigo": 0
+      },
+      {
+        "velocidade": 8.4,
+        "direcao": 100,
+        "rajada": 16.1,
+        "temperatura": 21.2,
+        "umidade": 68,
+        "nuvens": 5,
+        "chuva": 0,
+        "codigo": 0
+      },
+      {
+        "velocidade": 8.5,
+        "direcao": 103,
+        "rajada": 17.3,
+        "temperatura": 22.6,
+        "umidade": 63,
+        "nuvens": 16,
+        "chuva": 0,
+        "codigo": 0
+      },
+      {
+        "velocidade": 9.2,
+        "direcao": 102,
+        "rajada": 18.9,
+        "temperatura": 23.6,
+        "umidade": 60,
+        "nuvens": 66,
+        "chuva": 0,
+        "codigo": 2
+      },
+      {
+        "velocidade": 9,
+        "direcao": 112,
+        "rajada": 19.2,
+        "temperatura": 23.8,
+        "umidade": 61,
+        "nuvens": 99,
+        "chuva": 0,
+        "codigo": 3
+      },
+      {
+        "velocidade": 9.8,
+        "direcao": 126,
+        "rajada": 19.8,
+        "temperatura": 23.2,
+        "umidade": 65,
+        "nuvens": 97,
+        "chuva": 0,
+        "codigo": 3
+      },
+      {
+        "velocidade": 9.6,
+        "direcao": 128,
+        "rajada": 20.2,
+        "temperatura": 22.7,
+        "umidade": 67,
+        "nuvens": 73,
+        "chuva": 0.1,
+        "codigo": 51
+      },
+      {
+        "velocidade": 9,
+        "direcao": 130,
+        "rajada": 18.5,
+        "temperatura": 21.9,
+        "umidade": 71,
+        "nuvens": 24,
+        "chuva": 0,
+        "codigo": 1
+      },
+      {
+        "velocidade": 8.7,
+        "direcao": 133,
+        "rajada": 16.9,
+        "temperatura": 20.5,
+        "umidade": 77,
+        "nuvens": 12,
+        "chuva": 0,
+        "codigo": 0
+      },
+      {
+        "velocidade": 7.7,
+        "direcao": 141,
+        "rajada": 14,
+        "temperatura": 18.8,
+        "umidade": 84,
+        "nuvens": 14,
+        "chuva": 0,
+        "codigo": 0
+      },
+      {
+        "velocidade": 7.1,
+        "direcao": 144,
+        "rajada": 12.8,
+        "temperatura": 17.7,
+        "umidade": 88,
+        "nuvens": 7,
+        "chuva": 0,
+        "codigo": 0
+      },
+      {
+        "velocidade": 6.3,
+        "direcao": 144,
+        "rajada": 11.5,
+        "temperatura": 17.4,
+        "umidade": 89,
+        "nuvens": 4,
+        "chuva": 0,
+        "codigo": 0
+      },
+      {
+        "velocidade": 5.6,
+        "direcao": 144,
+        "rajada": 10.1,
+        "temperatura": 17.4,
+        "umidade": 89,
+        "nuvens": 10,
+        "chuva": 0,
+        "codigo": 0
+      },
+      {
+        "velocidade": 4.9,
+        "direcao": 139,
+        "rajada": 8.6,
+        "temperatura": 17.1,
+        "umidade": 89,
+        "nuvens": 3,
+        "chuva": 0,
+        "codigo": 0
+      },
+      {
+        "velocidade": 4.4,
+        "direcao": 130,
+        "rajada": 7.2,
+        "temperatura": 16.6,
+        "umidade": 91,
+        "nuvens": 8,
+        "chuva": 0,
+        "codigo": 0
+      }
+    ]
+  },
+  {
+    "id": "norte",
+    "nome": "Norte",
+    "data": "2026-08-08",
+    "modelo": "era5",
+    "horas": [
+      {
+        "velocidade": 4.2,
+        "direcao": 329,
+        "rajada": 13.2,
+        "temperatura": 18.6,
+        "umidade": 87,
+        "nuvens": 100,
+        "chuva": 0,
+        "codigo": 3
+      },
+      {
+        "velocidade": 4.6,
+        "direcao": 325,
+        "rajada": 12.6,
+        "temperatura": 18.4,
+        "umidade": 88,
+        "nuvens": 97,
+        "chuva": 0,
+        "codigo": 3
+      },
+      {
+        "velocidade": 4.2,
+        "direcao": 328,
+        "rajada": 10.5,
+        "temperatura": 17.9,
+        "umidade": 91,
+        "nuvens": 91,
+        "chuva": 0,
+        "codigo": 3
+      },
+      {
+        "velocidade": 4.8,
+        "direcao": 339,
+        "rajada": 12.1,
+        "temperatura": 17.8,
+        "umidade": 91,
+        "nuvens": 32,
+        "chuva": 0,
+        "codigo": 1
+      },
+      {
+        "velocidade": 5.2,
+        "direcao": 339,
+        "rajada": 9.9,
+        "temperatura": 17.8,
+        "umidade": 91,
+        "nuvens": 21,
+        "chuva": 0,
+        "codigo": 1
+      },
+      {
+        "velocidade": 4.7,
+        "direcao": 333,
+        "rajada": 8.6,
+        "temperatura": 17.9,
+        "umidade": 91,
+        "nuvens": 28,
+        "chuva": 0,
+        "codigo": 1
+      },
+      {
+        "velocidade": 4.8,
+        "direcao": 331,
+        "rajada": 8,
+        "temperatura": 17.8,
+        "umidade": 91,
+        "nuvens": 49,
+        "chuva": 0,
+        "codigo": 1
+      },
+      {
+        "velocidade": 4,
+        "direcao": 3,
+        "rajada": 8.7,
+        "temperatura": 17.9,
+        "umidade": 95,
+        "nuvens": 97,
+        "chuva": 0,
+        "codigo": 3
+      },
+      {
+        "velocidade": 5.4,
+        "direcao": 354,
+        "rajada": 11.1,
+        "temperatura": 18.2,
+        "umidade": 94,
+        "nuvens": 92,
+        "chuva": 0,
+        "codigo": 3
+      },
+      {
+        "velocidade": 9.1,
+        "direcao": 348,
+        "rajada": 14.2,
+        "temperatura": 19.3,
+        "umidade": 89,
+        "nuvens": 58,
+        "chuva": 0,
+        "codigo": 2
+      },
+      {
+        "velocidade": 11.4,
+        "direcao": 337,
+        "rajada": 17.5,
+        "temperatura": 20.9,
+        "umidade": 83,
+        "nuvens": 61,
+        "chuva": 0,
+        "codigo": 2
+      },
+      {
+        "velocidade": 12.5,
+        "direcao": 330,
+        "rajada": 20.4,
+        "temperatura": 23.6,
+        "umidade": 72,
+        "nuvens": 39,
+        "chuva": 0,
+        "codigo": 1
+      },
+      {
+        "velocidade": 12.1,
+        "direcao": 331,
+        "rajada": 23.1,
+        "temperatura": 25.1,
+        "umidade": 63,
+        "nuvens": 46,
+        "chuva": 0,
+        "codigo": 1
+      },
+      {
+        "velocidade": 12.9,
+        "direcao": 331,
+        "rajada": 25.5,
+        "temperatura": 26.4,
+        "umidade": 57,
+        "nuvens": 51,
+        "chuva": 0,
+        "codigo": 2
+      },
+      {
+        "velocidade": 13.9,
+        "direcao": 323,
+        "rajada": 28.2,
+        "temperatura": 27.5,
+        "umidade": 54,
+        "nuvens": 27,
+        "chuva": 0,
+        "codigo": 1
+      },
+      {
+        "velocidade": 13.2,
+        "direcao": 321,
+        "rajada": 28,
+        "temperatura": 27.7,
+        "umidade": 53,
+        "nuvens": 39,
+        "chuva": 0,
+        "codigo": 1
+      },
+      {
+        "velocidade": 12.4,
+        "direcao": 321,
+        "rajada": 24.9,
+        "temperatura": 27.6,
+        "umidade": 53,
+        "nuvens": 55,
+        "chuva": 0,
+        "codigo": 2
+      },
+      {
+        "velocidade": 11.4,
+        "direcao": 322,
+        "rajada": 24.1,
+        "temperatura": 27,
+        "umidade": 52,
+        "nuvens": 85,
+        "chuva": 0,
+        "codigo": 3
+      },
+      {
+        "velocidade": 10.8,
+        "direcao": 325,
+        "rajada": 22.5,
+        "temperatura": 26.2,
+        "umidade": 54,
+        "nuvens": 79,
+        "chuva": 0,
+        "codigo": 2
+      },
+      {
+        "velocidade": 9.7,
+        "direcao": 319,
+        "rajada": 21.8,
+        "temperatura": 25.3,
+        "umidade": 60,
+        "nuvens": 78,
+        "chuva": 0,
+        "codigo": 2
+      },
+      {
+        "velocidade": 9,
+        "direcao": 322,
+        "rajada": 21.2,
+        "temperatura": 24.9,
+        "umidade": 61,
+        "nuvens": 62,
+        "chuva": 0,
+        "codigo": 2
+      },
+      {
+        "velocidade": 9.6,
+        "direcao": 327,
+        "rajada": 21.2,
+        "temperatura": 24.6,
+        "umidade": 62,
+        "nuvens": 56,
+        "chuva": 0,
+        "codigo": 2
+      },
+      {
+        "velocidade": 10.2,
+        "direcao": 328,
+        "rajada": 21.4,
+        "temperatura": 24.3,
+        "umidade": 63,
+        "nuvens": 99,
+        "chuva": 0,
+        "codigo": 3
+      },
+      {
+        "velocidade": 10.7,
+        "direcao": 327,
+        "rajada": 22.4,
+        "temperatura": 24.2,
+        "umidade": 64,
+        "nuvens": 50,
+        "chuva": 0,
+        "codigo": 2
+      }
+    ]
+  },
+  {
+    "id": "vento-forte",
+    "nome": "Vento forte",
+    "data": "2025-11-08",
+    "modelo": "era5",
+    "horas": [
+      {
+        "velocidade": 5,
+        "direcao": 349,
+        "rajada": 14,
+        "temperatura": 20.2,
+        "umidade": 86,
+        "nuvens": 100,
+        "chuva": 0,
+        "codigo": 3
+      },
+      {
+        "velocidade": 6.1,
+        "direcao": 328,
+        "rajada": 20.2,
+        "temperatura": 21.4,
+        "umidade": 77,
+        "nuvens": 100,
+        "chuva": 0,
+        "codigo": 3
+      },
+      {
+        "velocidade": 7.4,
+        "direcao": 314,
+        "rajada": 26.6,
+        "temperatura": 22.5,
+        "umidade": 74,
+        "nuvens": 100,
+        "chuva": 0,
+        "codigo": 3
+      },
+      {
+        "velocidade": 6.9,
+        "direcao": 302,
+        "rajada": 30.7,
+        "temperatura": 22.2,
+        "umidade": 76,
+        "nuvens": 100,
+        "chuva": 0,
+        "codigo": 3
+      },
+      {
+        "velocidade": 9.6,
+        "direcao": 320,
+        "rajada": 21.2,
+        "temperatura": 21.8,
+        "umidade": 79,
+        "nuvens": 100,
+        "chuva": 1.3,
+        "codigo": 61
+      },
+      {
+        "velocidade": 13.4,
+        "direcao": 326,
+        "rajada": 27,
+        "temperatura": 20.9,
+        "umidade": 83,
+        "nuvens": 100,
+        "chuva": 0.4,
+        "codigo": 51
+      },
+      {
+        "velocidade": 15.7,
+        "direcao": 322,
+        "rajada": 30.7,
+        "temperatura": 19.9,
+        "umidade": 90,
+        "nuvens": 100,
+        "chuva": 0.1,
+        "codigo": 51
+      },
+      {
+        "velocidade": 17.8,
+        "direcao": 312,
+        "rajada": 32.5,
+        "temperatura": 21.1,
+        "umidade": 85,
+        "nuvens": 100,
+        "chuva": 0,
+        "codigo": 3
+      },
+      {
+        "velocidade": 16.4,
+        "direcao": 314,
+        "rajada": 32.9,
+        "temperatura": 21.2,
+        "umidade": 87,
+        "nuvens": 100,
+        "chuva": 0,
+        "codigo": 3
+      },
+      {
+        "velocidade": 16.8,
+        "direcao": 324,
+        "rajada": 35.8,
+        "temperatura": 21.7,
+        "umidade": 84,
+        "nuvens": 98,
+        "chuva": 0,
+        "codigo": 3
+      },
+      {
+        "velocidade": 19.6,
+        "direcao": 322,
+        "rajada": 38.7,
+        "temperatura": 22.3,
+        "umidade": 83,
+        "nuvens": 100,
+        "chuva": 0,
+        "codigo": 3
+      },
+      {
+        "velocidade": 21,
+        "direcao": 315,
+        "rajada": 39.3,
+        "temperatura": 22.9,
+        "umidade": 80,
+        "nuvens": 100,
+        "chuva": 0,
+        "codigo": 3
+      },
+      {
+        "velocidade": 19.5,
+        "direcao": 313,
+        "rajada": 36.2,
+        "temperatura": 24.1,
+        "umidade": 76,
+        "nuvens": 100,
+        "chuva": 0.1,
+        "codigo": 51
+      },
+      {
+        "velocidade": 17.7,
+        "direcao": 312,
+        "rajada": 34.2,
+        "temperatura": 24.5,
+        "umidade": 74,
+        "nuvens": 100,
+        "chuva": 0,
+        "codigo": 3
+      },
+      {
+        "velocidade": 15.6,
+        "direcao": 309,
+        "rajada": 31.7,
+        "temperatura": 24.8,
+        "umidade": 71,
+        "nuvens": 100,
+        "chuva": 0,
+        "codigo": 3
+      },
+      {
+        "velocidade": 13.1,
+        "direcao": 301,
+        "rajada": 28.4,
+        "temperatura": 25.7,
+        "umidade": 66,
+        "nuvens": 99,
+        "chuva": 0,
+        "codigo": 3
+      },
+      {
+        "velocidade": 10.8,
+        "direcao": 276,
+        "rajada": 20,
+        "temperatura": 26,
+        "umidade": 63,
+        "nuvens": 51,
+        "chuva": 0.3,
+        "codigo": 51
+      },
+      {
+        "velocidade": 6.2,
+        "direcao": 233,
+        "rajada": 12.6,
+        "temperatura": 23.8,
+        "umidade": 71,
+        "nuvens": 48,
+        "chuva": 0.7,
+        "codigo": 53
+      },
+      {
+        "velocidade": 8.5,
+        "direcao": 188,
+        "rajada": 18.3,
+        "temperatura": 20.5,
+        "umidade": 79,
+        "nuvens": 98,
+        "chuva": 1.3,
+        "codigo": 61
+      },
+      {
+        "velocidade": 8.9,
+        "direcao": 172,
+        "rajada": 21.8,
+        "temperatura": 18,
+        "umidade": 81,
+        "nuvens": 100,
+        "chuva": 0.7,
+        "codigo": 53
+      },
+      {
+        "velocidade": 10.2,
+        "direcao": 187,
+        "rajada": 23.9,
+        "temperatura": 17.1,
+        "umidade": 82,
+        "nuvens": 99,
+        "chuva": 0.1,
+        "codigo": 51
+      },
+      {
+        "velocidade": 10.3,
+        "direcao": 189,
+        "rajada": 22.5,
+        "temperatura": 16.7,
+        "umidade": 86,
+        "nuvens": 100,
+        "chuva": 0.3,
+        "codigo": 51
+      },
+      {
+        "velocidade": 12.3,
+        "direcao": 176,
+        "rajada": 23.7,
+        "temperatura": 16.1,
+        "umidade": 92,
+        "nuvens": 100,
+        "chuva": 0.4,
+        "codigo": 51
+      },
+      {
+        "velocidade": 10.9,
+        "direcao": 166,
+        "rajada": 22.5,
+        "temperatura": 16,
+        "umidade": 87,
+        "nuvens": 100,
+        "chuva": 0.3,
+        "codigo": 51
+      }
+    ]
+  },
+  {
+    "id": "calmaria",
+    "nome": "Calmaria",
+    "data": "2026-09-26",
+    "modelo": "era5",
+    "horas": [
+      {
+        "velocidade": 2.7,
+        "direcao": 38,
+        "rajada": 5.2,
+        "temperatura": 18.1,
+        "umidade": 95,
+        "nuvens": 43,
+        "chuva": 0,
+        "codigo": 1
+      },
+      {
+        "velocidade": 2.7,
+        "direcao": 23,
+        "rajada": 5.2,
+        "temperatura": 17.9,
+        "umidade": 96,
+        "nuvens": 98,
+        "chuva": 0,
+        "codigo": 3
+      },
+      {
+        "velocidade": 3.1,
+        "direcao": 11,
+        "rajada": 5.1,
+        "temperatura": 16.9,
+        "umidade": 96,
+        "nuvens": 100,
+        "chuva": 0,
+        "codigo": 3
+      },
+      {
+        "velocidade": 3.1,
+        "direcao": 7,
+        "rajada": 5.1,
+        "temperatura": 17.4,
+        "umidade": 98,
+        "nuvens": 99,
+        "chuva": 0,
+        "codigo": 3
+      },
+      {
+        "velocidade": 3.2,
+        "direcao": 5,
+        "rajada": 6,
+        "temperatura": 17.7,
+        "umidade": 98,
+        "nuvens": 99,
+        "chuva": 0,
+        "codigo": 3
+      },
+      {
+        "velocidade": 3.1,
+        "direcao": 4,
+        "rajada": 6.4,
+        "temperatura": 17.8,
+        "umidade": 96,
+        "nuvens": 99,
+        "chuva": 0,
+        "codigo": 3
+      },
+      {
+        "velocidade": 3.3,
+        "direcao": 358,
+        "rajada": 6.4,
+        "temperatura": 17.6,
+        "umidade": 96,
+        "nuvens": 99,
+        "chuva": 0,
+        "codigo": 3
+      },
+      {
+        "velocidade": 2.7,
+        "direcao": 356,
+        "rajada": 8,
+        "temperatura": 19.4,
+        "umidade": 94,
+        "nuvens": 99,
+        "chuva": 0,
+        "codigo": 3
+      },
+      {
+        "velocidade": 2.1,
+        "direcao": 347,
+        "rajada": 8,
+        "temperatura": 19.9,
+        "umidade": 95,
+        "nuvens": 96,
+        "chuva": 0,
+        "codigo": 3
+      },
+      {
+        "velocidade": 1.6,
+        "direcao": 14,
+        "rajada": 7.8,
+        "temperatura": 21.1,
+        "umidade": 92,
+        "nuvens": 21,
+        "chuva": 0,
+        "codigo": 1
+      },
+      {
+        "velocidade": 2.1,
+        "direcao": 31,
+        "rajada": 8.2,
+        "temperatura": 23,
+        "umidade": 81,
+        "nuvens": 0,
+        "chuva": 0,
+        "codigo": 0
+      },
+      {
+        "velocidade": 2.4,
+        "direcao": 7,
+        "rajada": 10.7,
+        "temperatura": 27,
+        "umidade": 62,
+        "nuvens": 0,
+        "chuva": 0,
+        "codigo": 0
+      },
+      {
+        "velocidade": 3.1,
+        "direcao": 338,
+        "rajada": 13.4,
+        "temperatura": 28.7,
+        "umidade": 53,
+        "nuvens": 0,
+        "chuva": 0,
+        "codigo": 0
+      },
+      {
+        "velocidade": 3.4,
+        "direcao": 316,
+        "rajada": 14.6,
+        "temperatura": 29.6,
+        "umidade": 49,
+        "nuvens": 0,
+        "chuva": 0,
+        "codigo": 0
+      },
+      {
+        "velocidade": 3.1,
+        "direcao": 301,
+        "rajada": 14.6,
+        "temperatura": 31.2,
+        "umidade": 41,
+        "nuvens": 0,
+        "chuva": 0,
+        "codigo": 0
+      },
+      {
+        "velocidade": 2.5,
+        "direcao": 279,
+        "rajada": 12.8,
+        "temperatura": 31.4,
+        "umidade": 38,
+        "nuvens": 1,
+        "chuva": 0,
+        "codigo": 0
+      },
+      {
+        "velocidade": 1.8,
+        "direcao": 209,
+        "rajada": 5.4,
+        "temperatura": 31.3,
+        "umidade": 39,
+        "nuvens": 1,
+        "chuva": 0,
+        "codigo": 0
+      },
+      {
+        "velocidade": 2.7,
+        "direcao": 159,
+        "rajada": 5.6,
+        "temperatura": 29.2,
+        "umidade": 51,
+        "nuvens": 1,
+        "chuva": 0,
+        "codigo": 0
+      },
+      {
+        "velocidade": 3.2,
+        "direcao": 155,
+        "rajada": 6,
+        "temperatura": 25,
+        "umidade": 69,
+        "nuvens": 16,
+        "chuva": 0,
+        "codigo": 0
+      },
+      {
+        "velocidade": 3.9,
+        "direcao": 157,
+        "rajada": 5.8,
+        "temperatura": 23,
+        "umidade": 79,
+        "nuvens": 38,
+        "chuva": 0,
+        "codigo": 1
+      },
+      {
+        "velocidade": 3.2,
+        "direcao": 153,
+        "rajada": 5.4,
+        "temperatura": 22.2,
+        "umidade": 83,
+        "nuvens": 50,
+        "chuva": 0,
+        "codigo": 2
+      },
+      {
+        "velocidade": 2.3,
+        "direcao": 144,
+        "rajada": 4.7,
+        "temperatura": 21.9,
+        "umidade": 84,
+        "nuvens": 86,
+        "chuva": 0,
+        "codigo": 3
+      },
+      {
+        "velocidade": 2.3,
+        "direcao": 135,
+        "rajada": 4.3,
+        "temperatura": 21.3,
+        "umidade": 84,
+        "nuvens": 100,
+        "chuva": 0,
+        "codigo": 3
+      },
+      {
+        "velocidade": 2.5,
+        "direcao": 116,
+        "rajada": 3.3,
+        "temperatura": 21.1,
+        "umidade": 86,
+        "nuvens": 100,
+        "chuva": 0,
+        "codigo": 3
+      }
+    ]
+  }
+]

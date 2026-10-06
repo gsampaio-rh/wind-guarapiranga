@@ -1,0 +1,27 @@
+---
+description: >-
+  Use when: building UI components, creating forms, accessibility review,
+  visual design, layout, typography, responsive design, interaction design,
+  color system, design tokens, spacing, animation.
+alwaysApply: false
+---
+
+# Design Principles: "Less but Better"
+
+Deep methodology: `.cursor/references/design/`.
+
+## Stance
+- Honest, unobtrusive UI — content first, minimal chrome, progressive disclosure
+- Form follows function; remove decoration that doesn't help the task
+- One job per screen; clarity over cleverness; reduce friction (B=MAT)
+- Craft: systematic spacing (8px grid), consistent type scale, purposeful color
+
+## Required for every UI task
+1. **Accessibility**: keyboard, ARIA/semantics, WCAG AA contrast, focus indicators
+2. **Hierarchy**: one focal point, consistent spacing
+3. **Simplicity**: remove anything that doesn't serve a purpose
+4. **Responsive**: mobile → tablet → desktop; touch targets ≥44px
+5. **Feedback**: every action gets immediate, honest response
+
+## Verify
+Runtime checks follow `ui_verification`: `browser_snapshot` for roles/state; bounding box or CDP `getComputedStyle` for size, contrast, overflow. Screenshot only if paint/overlap cannot be falsified that way.

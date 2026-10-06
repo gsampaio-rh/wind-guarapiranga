@@ -1,0 +1,17 @@
+---
+description: Architecture patterns, SOLID principles, and design trade-offs for software systems
+globs: ["src/**/*.{py,ts,tsx}", "app/**/*.{py,ts,tsx}", "backend/**/*.{py,ts,tsx}", "frontend/**/*.{py,ts,tsx}", "services/**/*.{py,ts,tsx}"]
+alwaysApply: false
+---
+
+# Architecture
+
+Deep patterns: `.cursor/references/patterns/`.
+
+- **SRP**: one reason to change per module; split validation/persistence/IO
+- **DIP**: depend on interfaces; inject adapters — domain imports no infra/api
+- **ISP**: small interfaces; clients must not depend on unused methods
+- **Layers**: `domain → application → infrastructure/api` (never invert)
+- **Simplest first**: escalate to DDD/hex/events only with a concrete pain
+- **API**: resources + status codes; version breaking changes; contract-test boundaries
+- **Don't**: fat god-modules, infra imports in domain, speculative microservices

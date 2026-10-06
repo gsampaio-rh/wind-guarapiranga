@@ -1,0 +1,25 @@
+---
+description: Research quality standards for experiment design, statistical rigor, causal inference, and honest reporting
+globs: ["experiments/**/*.{py,ipynb,md}", "analysis/**/*.{py,ipynb,md}"]
+alwaysApply: false
+---
+
+# Research Quality Standards
+
+Design for skeptical peer review, not confirmation.
+
+## Causal checks (before any finding)
+- **Tautology**: predicting Y with a restatement of Y (or post-outcome info) is a mirror — dig for the upstream cause
+- **Confounder**: if A beats B, control what else differs; if the effect vanishes after stratification, it was spurious correlation
+- **Fair compare**: only rank entities in the same comparability group; state the group
+- **Actionability**: "there is a correlation" is not a finding — name mechanism + recommended action
+- **Proxy variables**: labels (region, org type) stand in for latents — name the mechanism or caveat
+
+## Pre-registration & controls
+- State hypotheses before runs; label exploratory work as exploratory
+- Every experiment needs a null baseline; change one variable at a time
+
+## Stats & reporting
+- Effect sizes + CIs, not vibes; exact p-values; Bonferroni when multi-testing
+- Pin versions/seeds; log raw data; YAML config committed with results
+- Report nulls and surprises; plots need error bars; every number traces to a script

@@ -1,0 +1,7 @@
+node_modules
+dist
+.DS_Store
+.cursor/hooks.log
+.cursor/hooks/__pycache__/
+.harness/.session-stats.json
+.harness/breadcrumbs.jsonl
