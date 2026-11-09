@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { isSaturday, matchesKind } from "./catalog";
-import { WIND_DAYS, angleDelta, interpolateUv, sampleSeries } from "./series";
+import { WIND_DAYS, angleDelta, interpolateUv, interpolateValidation, sampleSeries } from "./series";
 
 const KIND_ORDER = ["brisa-sudeste", "norte", "vento-forte", "calmaria"];
 
@@ -39,5 +39,24 @@ describe("catálogo e série", () => {
     expect(angleDelta(mid.direcao, 0)).toBeLessThan(5);
     expect(angleDelta(mid.direcao, 180)).toBeGreaterThan(90);
     expect(mid.v).toBeLessThan(0);
+  });
+});
+
+describe("interpolateValidation (F2, dados do INMET com buracos)", () => {
+  it("interpola normalmente quando as duas horas vizinhas têm leitura", () => {
+    const hours = Array.from({ length: 24 }, () => null) as (null | { velocidade: number; direcao: number; rajada: number })[];
+    hours[10] = { velocidade: 10, direcao: 90, rajada: 15 };
+    hours[11] = { velocidade: 20, direcao: 90, rajada: 25 };
+    const result = interpolateValidation(hours, 10.5);
+    expect(result).not.toBeNull();
+    expect(result?.velocidade).toBeCloseTo(15, 5);
+  });
+
+  it("retorna null quando falta leitura numa das horas vizinhas", () => {
+    const hours = Array.from({ length: 24 }, () => null) as (null | { velocidade: number; direcao: number; rajada: number })[];
+    hours[10] = { velocidade: 10, direcao: 90, rajada: 15 };
+    // hours[11] fica null: buraco de estação.
+    expect(interpolateValidation(hours, 10.5)).toBeNull();
+    expect(interpolateValidation(hours, 10)).not.toBeNull();
   });
 });

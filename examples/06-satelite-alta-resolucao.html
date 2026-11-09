@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>06 — Satélite em alta resolução</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@6.12.0/dist/maplibre-gl.css" />
+<style>
+  html, body { margin: 0; height: 100%; font-family: -apple-system, sans-serif; }
+  #map { position: absolute; inset: 0; }
+  .caption {
+    position: absolute; top: 12px; left: 12px; z-index: 5; max-width: 400px;
+    background: rgba(10,16,13,0.88); color: #f2f6f2; padding: 10px 14px;
+    border-radius: 10px; font-size: 13px; line-height: 1.5;
+  }
+  .caption a { color: #8fd6a8; text-decoration: none; }
+  .segmented { position: absolute; top: 12px; right: 12px; z-index: 5; display: flex; background: rgba(10,16,13,0.88); border: 1px solid rgba(255,255,255,0.18); border-radius: 10px; overflow: hidden; }
+  .segmented button { background: transparent; color: #d4e4d6; border: none; padding: 9px 14px; font-size: 13px; cursor: pointer; border-right: 1px solid rgba(255,255,255,0.1); }
+  .segmented button:last-child { border-right: none; }
+  .segmented button[aria-pressed="true"] { background: #2f6b4f; color: #fff; }
+  .zoomnote { position: absolute; bottom: 12px; left: 12px; z-index: 5; font-size: 12px; color: #a9bdae; background: rgba(10,16,13,0.7); padding: 6px 10px; border-radius: 8px; }
+  .attrib { position: absolute; bottom: 6px; right: 8px; z-index: 5; font-size: 10.5px; color: rgba(255,255,255,0.65); }
+</style>
+</head>
+<body>
+<div id="map"></div>
+<div class="caption">
+  <strong>06 — Satélite em alta resolução</strong><br/>
+  Hoje: EOX Sentinel-2 cloudless, ~10 m/pixel, zoom máx. 14 — a Ilha dos Amores vira só uma manchinha.<br/>
+  Alternativa: <strong>Esri World Imagery</strong> (gratuito, sem chave), zoom máx. 19 nessa área — dá pra ver até as árvores da ilha.
+  <br/><a href="index.html">← voltar</a>
+</div>
+<div class="segmented">
+  <button data-src="eox" aria-pressed="true">EOX (atual)</button>
+  <button data-src="esri" aria-pressed="false">Esri (alta res)</button>
+</div>
+<div class="zoomnote" id="zoomnote"></div>
+<div class="attrib" id="attrib"></div>
+<script type="module">
+import * as maplibregl from "https://cdn.jsdelivr.net/npm/maplibre-gl@6.12.0/dist/maplibre-gl.mjs";
+
+const SOURCES = {
+  eox: {
+    type: "raster",
+    tiles: ["https://tiles.maps.eox.at/wmts/1.0.0/s2cloudless-2025_3857/default/g/{z}/{y}/{x}.jpg"],
+    tileSize: 256,
+    maxzoom: 14,
+    attribution: "Imagens Sentinel-2 cloudless © EOX (Copernicus Sentinel 2025)",
+  },
+  esri: {
+    type: "raster",
+    tiles: ["https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"],
+    tileSize: 256,
+    maxzoom: 19,
+    attribution: "Esri, Maxar, Earthstar Geographics, GIS User Community",
+  },
+};
+
+const map = new maplibregl.Map({
+  container: "map",
+  style: {
+    version: 8,
+    sources: { sat: SOURCES.eox },
+    layers: [
+      { id: "background", type: "background", paint: { "background-color": "#0d1a16" } },
+      { id: "sat", type: "raster", source: "sat", paint: { "raster-brightness-min": 0.05, "raster-saturation": 0.1 } },
+    ],
+  },
+  // Ilha dos Amores
+  center: [-46.7245, -23.6957],
+  zoom: 17,
+  attributionControl: false,
+});
+
+const buttons = [...document.querySelectorAll(".segmented button")];
+const zoomnote = document.querySelector("#zoomnote");
+const attrib = document.querySelector("#attrib");
+
+function updateZoomNote() {
+  zoomnote.textContent = `zoom atual: ${map.getZoom().toFixed(1)}`;
+}
+map.on("zoom", updateZoomNote);
+map.on("load", updateZoomNote);
+
+function setSource(key) {
+  map.removeLayer("sat");
+  map.removeSource("sat");
+  map.addSource("sat", SOURCES[key]);
+  map.addLayer({ id: "sat", type: "raster", source: "sat", paint: { "raster-brightness-min": 0.05, "raster-saturation": 0.1 } });
+  attrib.textContent = SOURCES[key].attribution;
+}
+
+for (const btn of buttons) {
+  btn.addEventListener("click", () => {
+    for (const b of buttons) b.setAttribute("aria-pressed", String(b === btn));
+    setSource(btn.dataset.src);
+  });
+}
+map.on("load", () => setSource("eox"));
+</script>
+</body>
+</html>

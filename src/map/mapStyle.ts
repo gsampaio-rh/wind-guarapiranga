@@ -1,6 +1,6 @@
 import type { LayerSpecification, StyleSpecification } from "maplibre-gl";
 import { placesGeoJson } from "../data/places";
-import water from "../data/water.json";
+import { smoothedWaterFeature as water } from "../data/waterGeometry";
 
 export const RELIEF_SOURCE = "terrain";
 export const SHADE_SOURCE = "shade";
@@ -26,6 +26,17 @@ function satelliteSource() {
     tileSize: 256,
     maxzoom: 14,
     attribution: "Imagens Sentinel-2 cloudless © EOX (Copernicus Sentinel 2025)",
+  };
+}
+
+/** Alta resolução: cobre a mesma área com imagens bem mais detalhadas que o Sentinel-2 (10 m/px, zoom 14). */
+function satelliteEsriSource() {
+  return {
+    type: "raster" as const,
+    tiles: ["https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"],
+    tileSize: 256,
+    maxzoom: 19,
+    attribution: "Esri, Maxar, Earthstar Geographics, GIS User Community",
   };
 }
 
@@ -91,6 +102,9 @@ function basemapLayers(): LayerSpecification[] {
       paint: { "fill-color": "#c9ddb4", "fill-opacity": 0.72 },
     },
     land("base-residential", "landuse", ["residential", "neighbourhood"], "#efe6da", 0.42),
+    land("base-industrial", "landuse", ["industrial"], "#e4d9e0", 0.46),
+    land("base-commercial", "landuse", ["commercial"], "#f3dede", 0.42),
+    land("base-cemetery", "landuse", ["cemetery"], "#cddac8", 0.58),
     {
       id: "base-water",
       type: "fill",
@@ -98,6 +112,14 @@ function basemapLayers(): LayerSpecification[] {
       "source-layer": "water",
       layout: BASE,
       paint: { "fill-color": "#b7d0dc" },
+    },
+    {
+      id: "base-waterway",
+      type: "line",
+      source: "openmaptiles",
+      "source-layer": "waterway",
+      layout: { ...BASE, "line-cap": "round" },
+      paint: { "line-color": "#8fb9cf", "line-width": ["interpolate", ["linear"], ["zoom"], 11, 0.6, 15, 2.2] },
     },
     {
       id: "base-building",
@@ -111,9 +133,59 @@ function basemapLayers(): LayerSpecification[] {
         "fill-opacity": ["interpolate", ["linear"], ["zoom"], 13.2, 0, 15.2, 0.8],
       },
     },
+    {
+      id: "base-building-3d",
+      type: "fill-extrusion",
+      source: "openmaptiles",
+      "source-layer": "building",
+      layout: { visibility: "none" },
+      paint: {
+        "fill-extrusion-color": "#e9e1d6",
+        "fill-extrusion-height": ["coalesce", ["get", "render_height"], ["*", ["coalesce", ["get", "levels"], 2], 3.2], 8],
+        "fill-extrusion-base": ["coalesce", ["get", "render_min_height"], 0],
+        "fill-extrusion-opacity": 0.92,
+      },
+    },
+    {
+      id: "base-building-outline",
+      type: "line",
+      source: "openmaptiles",
+      "source-layer": "building",
+      layout: { visibility: "none", "line-join": "round" },
+      paint: {
+        "line-color": "#b7ab98",
+        "line-width": ["interpolate", ["linear"], ["zoom"], 14, 0.4, 17, 1.1],
+        "line-opacity": ["interpolate", ["linear"], ["zoom"], 13.2, 0, 15.2, 0.9],
+      },
+    },
     ...roadPair("base-road-minor", ["minor", "service", "tertiary", "track"], "#f4f1ea", "#d9d0c4", 1.6),
     ...roadPair("base-road-major", ["primary", "secondary", "trunk"], "#f0d7a4", "#cbb88a", 2.8),
     ...roadPair("base-road-motorway", ["motorway"], "#e7b56a", "#c4924a", 3.4),
+    {
+      id: "base-poi-dot",
+      type: "circle",
+      source: "openmaptiles",
+      "source-layer": "poi",
+      minzoom: 14,
+      layout: BASE,
+      paint: { "circle-radius": 3, "circle-color": "#b4603c", "circle-stroke-color": "#fff8ef", "circle-stroke-width": 1 },
+    },
+    {
+      id: "base-poi-label",
+      type: "symbol",
+      source: "openmaptiles",
+      "source-layer": "poi",
+      minzoom: 15,
+      layout: {
+        ...BASE,
+        "text-field": ["coalesce", ["get", "name:pt"], ["get", "name"]],
+        "text-font": ["Noto Sans Regular"],
+        "text-size": 11,
+        "text-offset": [0, 1.1],
+        "text-anchor": "top",
+      },
+      paint: { "text-color": "#4a2f20", "text-halo-color": "#fff8ef", "text-halo-width": 1.2 },
+    },
     {
       id: "base-place",
       type: "symbol",
@@ -138,7 +210,11 @@ export const BASEMAP_LAYER_IDS = [
   "base-wetland",
   "base-park",
   "base-residential",
+  "base-industrial",
+  "base-commercial",
+  "base-cemetery",
   "base-water",
+  "base-waterway",
   "base-building",
   "base-road-minor-case",
   "base-road-minor",
@@ -146,8 +222,14 @@ export const BASEMAP_LAYER_IDS = [
   "base-road-major",
   "base-road-motorway-case",
   "base-road-motorway",
+  "base-poi-dot",
+  "base-poi-label",
   "base-place",
 ] as const;
+
+/** Camadas de prédio em 3D (extrusão + contorno), geridas separado de BASEMAP_LAYER_IDS
+ *  porque sua visibilidade depende também do toggle de prédios 3D, não só do modo de visão. */
+export const BUILDING_3D_LAYER_IDS = ["base-building-3d", "base-building-outline"] as const;
 
 function reliefLayer(exaggeration: number) {
   return {
@@ -172,6 +254,7 @@ export const mapStyle: StyleSpecification = {
   glyphs: "https://tiles.openfreemap.org/fonts/{fontstack}/{range}.pbf",
   sources: {
     satellite: satelliteSource(),
+    satelliteEsri: satelliteEsriSource(),
     openmaptiles: {
       type: "vector",
       url: "https://tiles.openfreemap.org/planet",
@@ -187,6 +270,18 @@ export const mapStyle: StyleSpecification = {
       id: "satellite",
       type: "raster",
       source: "satellite",
+      layout: { visibility: "none" },
+      paint: {
+        "raster-resampling": "linear",
+        "raster-fade-duration": 0,
+        "raster-brightness-min": 0.07,
+        "raster-saturation": 0.12,
+      },
+    },
+    {
+      id: "satellite-esri",
+      type: "raster",
+      source: "satelliteEsri",
       layout: { visibility: "none" },
       paint: {
         "raster-resampling": "linear",

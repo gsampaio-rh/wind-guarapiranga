@@ -5,3 +5,5 @@ dist
 .cursor/hooks/__pycache__/
 .harness/.session-stats.json
 .harness/breadcrumbs.jsonl
+scripts/overpass-landuse.geojson
+scripts/.cache/

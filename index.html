@@ -44,6 +44,14 @@
       <p id="flow-note" class="help">O traço mostra o vento desta hora, igual em todo o lago, e aponta para onde ele vai.</p>
       <p id="wind-cell" class="readout">Clique na água para ler a célula.</p>
       </section>
+      <section class="block" id="model-block">
+      <h2 class="eyebrow">Modelo (beta)</h2>
+      <div class="model-toggle">
+        <button type="button" id="model-inmet" aria-pressed="false">Comparar com INMET</button>
+        <p class="help">Mostra o vento observado na estação do INMET em Interlagos ao lado do valor simulado, quando disponível.</p>
+      </div>
+      <p class="help">Partículas: 1 clique mostra o vento com contagem fixa em todo o mapa, 2 cliques ajusta a densidade pela área da represa visível no zoom.</p>
+      </section>
       </div>
     </aside>
     <button type="button" id="hud-toggle" aria-expanded="false" aria-controls="hud" aria-label="Abrir o painel lateral">
@@ -69,6 +77,7 @@
         <div><dt>Nuvens</dt><dd id="day-cloud"></dd></div>
         <div><dt>Chuva na hora</dt><dd id="day-rain"></dd></div>
       </dl>
+      <p id="day-wind-inmet" class="help" hidden></p>
       <p id="day-sky" class="help"></p>
       <p class="eyebrow">As 24 horas</p>
       <canvas id="day-chart" tabindex="0" role="slider" aria-valuemin="0" aria-valuemax="23" aria-label="Hora no dia"></canvas>
@@ -117,19 +126,109 @@
       <button type="button" id="wind-speed" aria-label="Velocidade 1 vez">1×</button>
     </div>
     <div id="dock" aria-label="Camadas">
-      <div id="gust-legend" role="group" aria-label="Cor do traço" hidden>
-        <span><span class="gust-swatch" aria-hidden="true"></span>constante</span>
-        <span><span class="gust-swatch is-gust" aria-hidden="true"></span>rajada</span>
+      <div id="speed-color-legend" role="group" aria-label="Cor por intensidade do vento, de 0 a 26 nós">
+        <span class="speed-color-bar" aria-hidden="true"></span>
+        <span class="speed-color-ticks" aria-hidden="true">
+          <span>0</span><span>5</span><span>10</span><span>15</span><span>20</span><span>26 kt</span>
+        </span>
       </div>
-      <div class="dock-row" role="group" aria-label="Visão">
-        <button type="button" data-mode="map" aria-pressed="true">Mapa</button>
-        <button type="button" data-mode="relief" aria-pressed="false">Relevo</button>
-        <button type="button" data-mode="satellite" aria-pressed="false">Satélite</button>
+      <div class="dock-row icon-dock-row model-icons" role="group" aria-label="Modelo (beta): efeitos de vento">
+        <button type="button" id="model-all" class="icon-toggle icon-toggle-all" aria-pressed="false" data-tooltip="Ligar/desligar todos" aria-label="Ligar ou desligar todos os efeitos do modelo">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" /><path d="M7 6.5a7 7 0 1 0 10 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
+        </button>
+        <button type="button" id="model-hires" class="icon-toggle" aria-pressed="false" data-tooltip="Fonte de alta resolução" aria-label="Fonte de alta resolução: troca o ERA5 (25 km) pelo Best Match (9–13 km), mesmas datas">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="4" y="4" width="4" height="4" rx="1" fill="currentColor" /><rect x="10" y="4" width="4" height="4" rx="1" fill="currentColor" /><rect x="16" y="4" width="4" height="4" rx="1" fill="currentColor" />
+            <rect x="4" y="10" width="4" height="4" rx="1" fill="currentColor" /><rect x="10" y="10" width="4" height="4" rx="1" fill="currentColor" /><rect x="16" y="10" width="4" height="4" rx="1" fill="currentColor" />
+            <rect x="4" y="16" width="4" height="4" rx="1" fill="currentColor" /><rect x="10" y="16" width="4" height="4" rx="1" fill="currentColor" /><rect x="16" y="16" width="4" height="4" rx="1" fill="currentColor" />
+          </svg>
+        </button>
+        <button type="button" id="model-orographic" class="icon-toggle" aria-pressed="false" data-tooltip="Vento orográfico" aria-label="Vento orográfico: acelera ou abriga pelo relevo real ao redor da célula">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18 L9 8 L12.5 13 L15 10 L21 18 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" /></svg>
+        </button>
+        <button type="button" id="model-fetch" class="icon-toggle" aria-pressed="false" data-tooltip="Aceleração sobre a água" aria-label="Aceleração sobre a água: mais forte longe da margem, mais turbulento perto dela">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 9c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <path d="M3 15c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </button>
+        <button type="button" id="model-curvature" class="icon-toggle" aria-pressed="false" data-tooltip="Ponta e enseada" aria-label="Ponta e enseada: pontas aceleram o vento ao redor, baías e enseadas abrigam">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19 L8 13 L12 17 L16 7 L21 15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </button>
+        <button type="button" id="model-roughness" class="icon-toggle" aria-pressed="false" data-tooltip="Rugosidade da margem" aria-label="Rugosidade da margem: mata abriga, área aberta/construída expõe mais (dado OSM)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 L16 10 H13.5 L17 15 H7 L10.5 10 H8 Z" fill="currentColor" /><rect x="11" y="15" width="2" height="5" fill="currentColor" /></svg>
+        </button>
+        <button type="button" id="model-lakebreeze" class="icon-toggle" aria-pressed="false" data-tooltip="Brisa de lago (estimativa)" aria-label="Brisa de lago (estimativa): sopro da água para a terra em dias de vento fraco e sol forte">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 9h11a2.5 2.5 0 1 0-2.2-3.7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <path d="M3 15h14a2.5 2.5 0 1 1-2.2 3.7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </button>
       </div>
-      <div class="dock-row" role="group" aria-label="Vento e legendas">
-        <button type="button" id="wind-particles" aria-pressed="true" aria-label="Mostrar as partículas do vento constante">Partículas</button>
-        <button type="button" id="wind-gust" aria-pressed="false" aria-label="Rajada. Alguns traços, de vez em quando, ficam vermelhos e sobem até a rajada da hora">Rajada</button>
-        <button type="button" id="labels" aria-pressed="true">Legendas</button>
+      <div class="dock-row icon-dock-row" role="group" aria-label="Vento e camadas">
+        <button type="button" id="wind-particles" class="icon-toggle" aria-pressed="true" data-tooltip="Partículas: mapa completo" aria-label="Partículas de vento ligadas, contagem fixa cobrindo todo o mapa visível">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 8 H18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <path d="M4 13 H14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <path d="M4 18 H20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </button>
+        <button type="button" id="labels" class="icon-toggle" aria-pressed="true" data-tooltip="Legendas" aria-label="Legendas: nomes de lugares e cor por altitude">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="4" y="5" width="3" height="3" rx="0.5" fill="currentColor" />
+            <path d="M9.5 6.5 H20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <rect x="4" y="10.5" width="3" height="3" rx="0.5" fill="currentColor" />
+            <path d="M9.5 12 H20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <rect x="4" y="16" width="3" height="3" rx="0.5" fill="currentColor" />
+            <path d="M9.5 17.5 H16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </button>
+        <button type="button" id="view-openmaptiles" class="icon-toggle" aria-pressed="true" data-tooltip="Camadas do mapa" aria-label="Camadas do mapa (OpenMapTiles): ruas, construções, vegetação e nomes de lugares — liga e desliga tudo de uma vez, só no modo Mapa">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 3 L21 8.5 L12 14 L3 8.5 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+            <path d="M3 13.5 L12 19 L21 13.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+      <div class="dock-row icon-dock-row" role="group" aria-label="Visão">
+        <button type="button" data-mode="map" class="icon-toggle" aria-pressed="true" data-tooltip="Mapa" aria-label="Modo Mapa: ruas, construções e vegetação">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 7 L8 5 L8 17 L4 19 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+            <path d="M8 5 L16 7 L16 19 L8 17 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+            <path d="M16 7 L20 5 L20 17 L16 19 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+          </svg>
+        </button>
+        <button type="button" data-mode="relief" class="icon-toggle" aria-pressed="false" data-tooltip="Relevo" aria-label="Modo Relevo: cores por altitude e sombreamento do terreno">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 8 Q7 5 12 8 T21 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <path d="M3 13 Q7 10 12 13 T21 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <path d="M3 18 Q7 15 12 18 T21 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </button>
+        <button type="button" data-mode="satellite" class="icon-toggle" aria-pressed="false" data-tooltip="Satélite" aria-label="Modo Satélite: imagem aérea real da região">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="9.5" y="9.5" width="5" height="5" rx="1" fill="none" stroke="currentColor" stroke-width="2" transform="rotate(45 12 12)" />
+            <rect x="1.8" y="9.8" width="4.4" height="4.4" rx="1" fill="none" stroke="currentColor" stroke-width="1.6" transform="rotate(45 4 12)" />
+            <rect x="17.8" y="9.8" width="4.4" height="4.4" rx="1" fill="none" stroke="currentColor" stroke-width="1.6" transform="rotate(45 20 12)" />
+            <path d="M6.8 12 H9.2 M14.8 12 H17.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+            <path d="M12 7 V3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <path d="M8.5 15.5 L5.5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </button>
+        <button type="button" id="view-satellite-hires" class="icon-toggle" aria-pressed="false" data-tooltip="Satélite em alta resolução" aria-label="Satélite em alta resolução: troca o Sentinel-2 (10 m/px) pelo Esri World Imagery, bem mais detalhado — só vale no modo Satélite" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2" />
+            <path d="M16 16 L21 21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <path d="M11 7 L11 11 L14 13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+        <button type="button" id="view-buildings-3d" class="icon-toggle" aria-pressed="false" data-tooltip="Prédios em 3D" aria-label="Prédios em 3D: extruda os prédios com contorno em vez de preenchimento chapado — só vale no modo Mapa">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 20 V9 L12 4 L19 9 V20 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+            <path d="M5 9 L12 14 L19 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" />
+            <path d="M12 14 V20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </button>
       </div>
     </div>
     <div id="overview">

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Opções — visão de Mapa</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #0b120f;
+    color: #eef4ee;
+    padding: 48px 24px;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  h1 { font-size: 22px; margin: 0 0 6px; }
+  p.lead { color: #a9bdae; margin: 0 0 32px; line-height: 1.5; }
+  .card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: #121c17;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .card:hover { border-color: #4f8f66; transform: translateX(2px); }
+  .card .tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #8fd6a8;
+    margin-bottom: 6px;
+  }
+  .card h2 { font-size: 16px; margin: 0 0 6px; }
+  .card p { margin: 0; font-size: 13px; color: #a9bdae; line-height: 1.5; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Opções para a visão de Mapa</h1>
+  <p class="lead">5 páginas independentes, cada uma testando uma ideia diferente pra deixar o modo "Mapa" menos geométrico. Abra cada uma, mexa no mapa (zoom/arraste) e compare com o visual atual do app.</p>
+
+  <a class="card" href="01-atual.html">
+    <span class="tag">Referência</span>
+    <h2>01 — Como está hoje</h2>
+    <p>O estilo atual do app: preenchimento chapado por categoria (mata, gleba, prédio...), sem contorno, com sombra 2D de relevo e o lago desenhado por cima.</p>
+  </a>
+
+  <a class="card" href="02-estilo-rico.html">
+    <span class="tag">Opção A</span>
+    <h2>02 — Estilo pronto mais rico (OpenFreeMap Liberty)</h2>
+    <p>Troca nosso estilo minimalista por um estilo cartográfico completo (o mesmo dado do OpenStreetMap, só que com mais camadas, textura e rótulos), com o lago e a sombra de relevo por cima.</p>
+  </a>
+
+  <a class="card" href="03-predios-3d-contorno.html">
+    <span class="tag">Opção B</span>
+    <h2>03 — Prédios em 3D + contorno</h2>
+    <p>Mantém nosso estilo, mas prédios ganham contorno e viram blocos extrudados (3D), e a sombra de relevo fica mais forte. Tem um botão pra ligar/desligar e comparar.</p>
+  </a>
+
+  <a class="card" href="04-lago-suavizado.html">
+    <span class="tag">Opção C</span>
+    <h2>04 — Contorno do lago suavizado</h2>
+    <p>Mesmo polígono do lago, mas com os cantos arredondados por um algoritmo de suavização (Chaikin). Botão pra alternar entre o traçado original e o suavizado.</p>
+  </a>
+
+  <a class="card" href="05-mais-camadas.html">
+    <span class="tag">Opção D</span>
+    <h2>05 — Mais camadas do OpenMapTiles</h2>
+    <p>Liga camadas que já existem na fonte de dados e hoje não usamos: rios/córregos, mais subtipos de uso do solo e pontos de interesse (POIs).</p>
+  </a>
+
+  <a class="card" href="06-satelite-alta-resolucao.html">
+    <span class="tag">Opção E</span>
+    <h2>06 — Satélite em alta resolução</h2>
+    <p>Troca o EOX Sentinel-2 (10 m/pixel, zoom máx. 14) pelo Esri World Imagery (gratuito, zoom máx. 19 nessa área) — dá pra ver a Ilha dos Amores de verdade.</p>
+  </a>
+</div>
+</body>
+</html>

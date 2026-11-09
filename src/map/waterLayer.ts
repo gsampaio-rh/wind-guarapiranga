@@ -4,7 +4,7 @@ import {
   type CustomRenderMethodInput,
   type Map as MapView,
 } from "maplibre-gl";
-import water from "../data/water.json";
+import { smoothedWaterFeature as water } from "../data/waterGeometry";
 import { buildWaterMesh } from "./waterMesh";
 
 const mesh = buildWaterMesh(water.geometry.coordinates);

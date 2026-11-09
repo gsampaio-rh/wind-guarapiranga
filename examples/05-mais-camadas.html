@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>05 — Mais camadas do OpenMapTiles</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@6.12.0/dist/maplibre-gl.css" />
+<style>
+  html, body { margin: 0; height: 100%; font-family: -apple-system, sans-serif; }
+  #map { position: absolute; inset: 0; }
+  .caption {
+    position: absolute; top: 12px; left: 12px; z-index: 5; max-width: 400px;
+    background: rgba(10,16,13,0.88); color: #f2f6f2; padding: 10px 14px;
+    border-radius: 10px; font-size: 13px; line-height: 1.45;
+  }
+  .caption a { color: #8fd6a8; text-decoration: none; }
+  .toggle {
+    position: absolute; top: 12px; right: 12px; z-index: 5;
+    background: rgba(10,16,13,0.88); color: #f2f6f2; border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 10px; padding: 9px 16px; font-size: 13px; cursor: pointer;
+  }
+  .toggle[aria-pressed="true"] { background: #2f6b4f; border-color: #4f8f66; }
+</style>
+</head>
+<body>
+<div id="map"></div>
+<div class="caption">
+  <strong>05 — Mais camadas do OpenMapTiles</strong><br/>
+  Liga camadas que a fonte de dados já tem e hoje não usamos: rios/córregos, mais subtipos de uso do solo (industrial, comercial, cemitério) e pontos de interesse. Dê zoom pra ver os POIs aparecerem.
+  <br/><a href="index.html">← voltar</a>
+</div>
+<button class="toggle" id="toggle" aria-pressed="false">Ligar camadas extras</button>
+<script type="module">
+import * as maplibregl from "https://cdn.jsdelivr.net/npm/maplibre-gl@6.12.0/dist/maplibre-gl.mjs";
+const WATER = {"type":"Feature","properties":{"name":"Represa de Guarapiranga"},"geometry":{"type":"Polygon","coordinates":[[[-46.7948619,-23.7835997],[-46.7893043,-23.7845938],[-46.7890012,-23.7819528],[-46.7886204,-23.7792062],[-46.7838514,-23.77536],[-46.7787901,-23.7746432],[-46.777103,-23.7696014],[-46.7738414,-23.7671491],[-46.7704457,-23.7688404],[-46.7692033,-23.7666852],[-46.7709687,-23.7646011],[-46.7677903,-23.7626741],[-46.7670313,-23.7602364],[-46.7667818,-23.7584959],[-46.7646816,-23.7559453],[-46.7631742,-23.7525648],[-46.7633539,-23.7496801],[-46.7629758,-23.7469378],[-46.758188,-23.7447883],[-46.7566551,-23.7448435],[-46.7533815,-23.7441487],[-46.7494199,-23.7450645],[-46.7491302,-23.7495598],[-46.7453107,-23.7477774],[-46.7435297,-23.7527096],[-46.7423469,-23.7489755],[-46.7400259,-23.7478442],[-46.7371944,-23.746842],[-46.7324469,-23.7458329],[-46.7305774,-23.7464565],[-46.7293516,-23.7514723],[-46.7285523,-23.754271],[-46.7277154,-23.757023],[-46.7261088,-23.7585008],[-46.7257977,-23.7612846],[-46.7252584,-23.7630982],[-46.7247449,-23.7641543],[-46.7261074,-23.7648773],[-46.7264494,-23.765734],[-46.7264521,-23.7662703],[-46.7264213,-23.7669859],[-46.7254932,-23.7665993],[-46.7245169,-23.7662114],[-46.7254381,-23.7656089],[-46.7248669,-23.7648466],[-46.7230698,-23.7636806],[-46.7226487,-23.759446],[-46.7240033,-23.7570696],[-46.7258728,-23.7558421],[-46.7250413,-23.7533111],[-46.7256314,-23.75023],[-46.7250493,-23.7478781],[-46.7256689,-23.7444482],[-46.7234319,-23.7431433],[-46.7218226,-23.7430046],[-46.7232978,-23.7411411],[-46.7232308,-23.7401369],[-46.7257762,-23.7334879],[-46.7235367,-23.7318196],[-46.7223759,-23.7303188],[-46.7215034,-23.7287686],[-46.7217904,-23.7272168],[-46.7210338,-23.7242398],[-46.7200711,-23.7215739],[-46.7167023,-23.7217606],[-46.7190734,-23.7181164],[-46.7132664,-23.7204689],[-46.712105,-23.7188261],[-46.7128909,-23.716643],[-46.716941,-23.7149732],[-46.7166755,-23.7128882],[-46.7141515,-23.7129128],[-46.7137532,-23.7122657],[-46.7133442,-23.7119243],[-46.7129351,-23.7096036],[-46.7136003,-23.7086458],[-46.71435,-23.7068862],[-46.7153558,-23.7036592],[-46.7162812,-23.7010166],[-46.7160619,-23.6990825],[-46.7165159,-23.6974173],[-46.7174552,-23.6962188],[-46.7167237,-23.6951024],[-46.7175027,-23.6934825],[-46.7185047,-23.6909884],[-46.7167103,-23.6889964],[-46.7166942,-23.6866188],[-46.7176142,-23.685376],[-46.7186147,-23.6821508],[-46.7183733,-23.6804191],[-46.7190854,-23.6798222],[-46.7191491,-23.6787408],[-46.7199263,-23.6779725],[-46.7189124,-23.6774137],[-46.717633,-23.6746563],[-46.7273966,-23.671349],[-46.7276732,-23.6705656],[-46.7281204,-23.6709163],[-46.7283055,-23.6722748],[-46.7304459,-23.6745458],[-46.7324469,-23.6777502],[-46.7330369,-23.6793972],[-46.7330986,-23.680343],[-46.7333782,-23.6811499],[-46.7336089,-23.6830087],[-46.7334822,-23.6843112],[-46.7334956,-23.6857849],[-46.7323905,-23.6893231],[-46.7348649,-23.6891567],[-46.7362475,-23.6907919],[-46.738396,-23.6912561],[-46.7383021,-23.6931326],[-46.7388667,-23.6945928],[-46.7404895,-23.6961868],[-46.7415538,-23.696553],[-46.7440608,-23.6971508],[-46.7459169,-23.6962077],[-46.7468195,-23.6985213],[-46.7474458,-23.699317],[-46.7435941,-23.7012548],[-46.7408871,-23.700157],[-46.7369342,-23.7009159],[-46.7347053,-23.7009306],[-46.7319533,-23.7004566],[-46.7295501,-23.7030231],[-46.7288634,-23.70431],[-46.7293113,-23.7062133],[-46.7304821,-23.7074719],[-46.7288822,-23.7093617],[-46.7322999,-23.7107414],[-46.7360584,-23.7120741],[-46.7382914,-23.7152384],[-46.7390411,-23.7167658],[-46.7396271,-23.7164478],[-46.7398927,-23.7122571],[-46.7428887,-23.7090867],[-46.7489773,-23.7085046],[-46.7549613,-23.7098873],[-46.7598698,-23.7060095],[-46.7644751,-23.7070262],[-46.7675141,-23.7078882],[-46.7687666,-23.7108745],[-46.7716071,-23.7147214],[-46.7751852,-23.7176376],[-46.7748955,-23.7184627],[-46.7731306,-23.7189243],[-46.7725191,-23.7169672],[-46.769008,-23.7141038],[-46.7675489,-23.7133843],[-46.7639977,-23.7117217],[-46.7613249,-23.7113485],[-46.7601487,-23.7126009],[-46.7578822,-23.7126549],[-46.7535263,-23.7151745],[-46.7484409,-23.7190348],[-46.7447931,-23.7254046],[-46.7401636,-23.7319165],[-46.7410353,-23.7368002],[-46.7417273,-23.7381653],[-46.7424729,-23.7407065],[-46.7449808,-23.7401615],[-46.7470717,-23.7354247],[-46.7546073,-23.7333725],[-46.7586896,-23.7336819],[-46.7623642,-23.7323216],[-46.7654863,-23.7333824],[-46.7677367,-23.7350864],[-46.7698409,-23.7375847],[-46.7714408,-23.7399061],[-46.7720255,-23.7421797],[-46.7718565,-23.7443525],[-46.7690563,-23.7465032],[-46.7679553,-23.748002],[-46.7682892,-23.7497194],[-46.7686111,-23.7505921],[-46.7702848,-23.7492897],[-46.7707247,-23.7498004],[-46.768823,-23.7515533],[-46.7685293,-23.7523512],[-46.7705959,-23.7539616],[-46.7742759,-23.7541949],[-46.7772632,-23.7553248],[-46.7738219,-23.7575421],[-46.772047,-23.7595491],[-46.7723474,-23.7639678],[-46.7745602,-23.7624433],[-46.7808312,-23.7638278],[-46.7836207,-23.7653621],[-46.780909,-23.7665502],[-46.7812657,-23.7681163],[-46.7820972,-23.7696333],[-46.7845166,-23.7684526],[-46.79075,-23.7742849],[-46.793738,-23.7806961],[-46.7948404,-23.7835261],[-46.7948619,-23.7835997]],[[-46.78914,-23.775985],[-46.7884796,-23.7760462],[-46.7884414,-23.7779118],[-46.78914,-23.775985]],[[-46.7360973,-23.7316317],[-46.7321974,-23.7310866],[-46.7322564,-23.7367192],[-46.7358835,-23.7351514],[-46.7360973,-23.7316317]]]}};
+
+const BASE = { visibility: "visible" };
+function land(id, sourceLayer, classes, color, opacity) {
+  return { id, type: "fill", source: "openmaptiles", "source-layer": sourceLayer, layout: BASE,
+    filter: sourceLayer === "landcover" ? ["match", ["get", "class"], classes, true, false] : ["all", ["match", ["geometry-type"], ["MultiPolygon", "Polygon"], true, false], ["match", ["get", "class"], classes, true, false]],
+    paint: { "fill-color": color, "fill-opacity": opacity } };
+}
+function road(id, classes, color, width) {
+  return { id, type: "line", source: "openmaptiles", "source-layer": "transportation", layout: { ...BASE, "line-cap": "round", "line-join": "round" },
+    filter: ["all", ["match", ["geometry-type"], ["LineString", "MultiLineString"], true, false], ["!=", ["get", "brunnel"], "tunnel"], ["match", ["get", "class"], classes, true, false]],
+    paint: { "line-color": color, "line-width": ["interpolate", ["linear"], ["zoom"], 11, width * 0.3, 15, width], "line-opacity": ["interpolate", ["linear"], ["zoom"], 10.5, 0.2, 12.2, 0.9] } };
+}
+function roadPair(id, classes, fill, casing, width) { return [road(`${id}-case`, classes, casing, width + 1.8), road(id, classes, fill, width)]; }
+
+const style = {
+  version: 8,
+  glyphs: "https://tiles.openfreemap.org/fonts/{fontstack}/{range}.pbf",
+  sources: {
+    openmaptiles: { type: "vector", url: "https://tiles.openfreemap.org/planet" },
+    shade: { type: "raster-dem", tiles: ["https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png"], encoding: "terrarium", tileSize: 256, maxzoom: 15 },
+    water: { type: "geojson", data: WATER },
+  },
+  layers: [
+    { id: "base-background", type: "background", layout: BASE, paint: { "background-color": "#e3ece4" } },
+    land("base-farm", "landcover", ["farmland", "grass"], "#d5e3c4", 0.55),
+    land("base-wood", "landcover", ["wood", "scrub"], "#8fb888", 0.62),
+    land("base-wetland", "landcover", ["wetland"], "#c5d7c8", 0.7),
+    { id: "base-park", type: "fill", source: "openmaptiles", "source-layer": "park", layout: BASE, filter: ["match", ["geometry-type"], ["MultiPolygon", "Polygon"], true, false], paint: { "fill-color": "#c9ddb4", "fill-opacity": 0.72 } },
+    land("base-residential", "landuse", ["residential", "neighbourhood"], "#efe6da", 0.42),
+    // extras: more landuse subtypes — hidden by default
+    land("extra-industrial", "landuse", ["industrial"], "#e4d9e0", 0.5),
+    land("extra-commercial", "landuse", ["commercial"], "#f3dede", 0.45),
+    land("extra-cemetery", "landuse", ["cemetery"], "#cddac8", 0.6),
+    { id: "base-water", type: "fill", source: "openmaptiles", "source-layer": "water", layout: BASE, paint: { "fill-color": "#b7d0dc" } },
+    // extra: rivers/streams — hidden by default
+    { id: "extra-waterway", type: "line", source: "openmaptiles", "source-layer": "waterway", layout: { visibility: "none", "line-cap": "round" },
+      paint: { "line-color": "#8fb9cf", "line-width": ["interpolate", ["linear"], ["zoom"], 11, 0.6, 15, 2.2] } },
+    { id: "base-building", type: "fill", source: "openmaptiles", "source-layer": "building", layout: BASE, paint: { "fill-color": "#e6ddd2", "fill-outline-color": "#e6ddd2", "fill-opacity": ["interpolate", ["linear"], ["zoom"], 13.2, 0, 15.2, 0.8] } },
+    ...roadPair("base-road-minor", ["minor", "service", "tertiary", "track"], "#f4f1ea", "#d9d0c4", 1.6),
+    ...roadPair("base-road-major", ["primary", "secondary", "trunk"], "#f0d7a4", "#cbb88a", 2.8),
+    ...roadPair("base-road-motorway", ["motorway"], "#e7b56a", "#c4924a", 3.4),
+    // extra: POIs — hidden by default
+    { id: "extra-poi-dot", type: "circle", source: "openmaptiles", "source-layer": "poi", minzoom: 14,
+      layout: { visibility: "none" },
+      paint: { "circle-radius": 3, "circle-color": "#b4603c", "circle-stroke-color": "#fff8ef", "circle-stroke-width": 1 } },
+    { id: "extra-poi-label", type: "symbol", source: "openmaptiles", "source-layer": "poi", minzoom: 15,
+      layout: { visibility: "none", "text-field": ["coalesce", ["get", "name:pt"], ["get", "name"]], "text-font": ["Noto Sans Regular"], "text-size": 11, "text-offset": [0, 1.1], "text-anchor": "top" },
+      paint: { "text-color": "#4a2f20", "text-halo-color": "#fff8ef", "text-halo-width": 1.2 } },
+    { id: "base-place", type: "symbol", source: "openmaptiles", "source-layer": "place", layout: { ...BASE, "text-field": ["coalesce", ["get", "name:pt"], ["get", "name"]], "text-font": ["Noto Sans Regular"], "text-size": ["interpolate", ["linear"], ["zoom"], 8, 11, 14, 16] }, filter: ["match", ["get", "class"], ["city", "town", "suburb", "village"], true, false], paint: { "text-color": "#243028", "text-halo-color": "#e3ece4", "text-halo-width": 1.4 } },
+    { id: "relief", type: "hillshade", source: "shade", layout: { visibility: "visible" }, paint: { "hillshade-method": "combined", "hillshade-exaggeration": 0.414, "hillshade-illumination-anchor": "map", "hillshade-illumination-direction": 315, "hillshade-shadow-color": "rgba(48, 72, 58, 0.55)", "hillshade-highlight-color": "rgba(255, 250, 242, 0.35)", "hillshade-accent-color": "rgba(36, 58, 46, 0.28)" } },
+    { id: "water-fill", type: "fill", source: "water", layout: { visibility: "visible" }, paint: { "fill-color": "#123e56", "fill-opacity": 0.95 } },
+    { id: "water-shore", type: "line", source: "water", layout: { visibility: "visible", "line-cap": "round", "line-join": "round" }, paint: { "line-color": "#c5e4f0", "line-width": 1.4, "line-blur": 0.8, "line-opacity": 0.45 } },
+  ],
+};
+
+const map = new maplibregl.Map({
+  container: "map",
+  style,
+  center: [-46.7245, -23.6957],
+  zoom: 14.6,
+  pitch: 0,
+  attributionControl: false,
+});
+
+const EXTRA_LAYERS = ["extra-industrial", "extra-commercial", "extra-cemetery", "extra-waterway", "extra-poi-dot", "extra-poi-label"];
+const toggle = document.querySelector("#toggle");
+let on = false;
+toggle.addEventListener("click", () => {
+  on = !on;
+  toggle.setAttribute("aria-pressed", String(on));
+  toggle.textContent = on ? "Desligar camadas extras" : "Ligar camadas extras";
+  for (const id of EXTRA_LAYERS) map.setLayoutProperty(id, "visibility", on ? "visible" : "none");
+});
+</script>
+</body>
+</html>

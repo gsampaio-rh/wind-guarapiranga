@@ -1,4 +1,6 @@
 import rawDays from "../../data/wind-days.json";
+import rawDaysHires from "../../data/wind-days-hires.json";
+import rawValidation from "../../data/wind-validation.json";
 import { wrapDegrees } from "../geo";
 import { VIEWPOINTS } from "../viewpoints";
 import { type WindHour } from "./catalog";
@@ -32,6 +34,41 @@ export type WindVector = {
 };
 
 export const WIND_DAYS = rawDays as WindDay[];
+/** F1: mesmas 4 datas de WIND_DAYS, buscadas com o modelo best_match (9–13 km) em vez do ERA5 (25 km). */
+export const WIND_DAYS_HIRES = rawDaysHires as WindDay[];
+
+export function hiresDayFor(day: WindDay): WindDay {
+  return WIND_DAYS_HIRES.find((item) => item.id === day.id) ?? day;
+}
+
+/** F2: vento observado na estação INMET Interlagos para as mesmas datas do catálogo, quando disponível. */
+export const WIND_VALIDATION = rawValidation as Record<string, (WindHour | null)[] | undefined>;
+
+/**
+ * As 24 horas do dia (com buracos como `null` onde a estação não tinha leitura),
+ * ou undefined se o INMET não tinha nenhum dado nessa data.
+ */
+export function validationHoursFor(dayId: string): (WindHour | null)[] | undefined {
+  const hours = WIND_VALIDATION[dayId];
+  if (!hours || hours.length !== 24 || hours.every((hour) => hour == null)) return undefined;
+  return hours;
+}
+
+/** Interpola a série do INMET para a hora pedida, ou null se faltar leitura numa das duas horas vizinhas. */
+export function interpolateValidation(hours: (WindHour | null)[], hour: number): WindVector | null {
+  const wrapped = ((hour % 24) + 24) % 24;
+  const base = Math.floor(wrapped + 1e-8) % 24;
+  const fraction = wrapped - Math.floor(wrapped + 1e-8);
+  const current = hours[base];
+  if (!current) return null;
+  if (fraction < 1e-6) {
+    const uv = meteoToUv(current.velocidade, current.direcao);
+    return { ...uv, velocidade: current.velocidade, direcao: current.direcao, rajada: current.rajada };
+  }
+  const next = hours[(base + 1) % 24];
+  if (!next) return null;
+  return interpolateUv(current, next, fraction);
+}
 
 export function meteoToUv(speed: number, directionDeg: number): { u: number; v: number } {
   const rad = (directionDeg * Math.PI) / 180;
@@ -100,6 +137,25 @@ export function sampleWeather(day: WindDay, hour: number): HourWeather | null {
     chuva: mix(current.hour.chuva, next?.chuva),
     codigo: code ?? 0,
   };
+}
+
+/**
+ * F11: menor e maior temperatura das 24 horas do dia, usada como indicador de quanto a
+ * terra já esquentou mais que a água — serve de base pra brisa de lago, em vez de inventar
+ * uma curva senoidal própria.
+ */
+export function dayTemperatureRange(day: WindDay): { min: number; max: number } | null {
+  const hours = day.horas ?? day.pontos?.amores;
+  if (!hours) return null;
+  let min = Infinity;
+  let max = -Infinity;
+  for (const item of hours) {
+    if (item.temperatura == null) continue;
+    min = Math.min(min, item.temperatura);
+    max = Math.max(max, item.temperatura);
+  }
+  if (!Number.isFinite(min) || !Number.isFinite(max)) return null;
+  return { min, max };
 }
 
 function hourAt(hours: WindHour[], hour: number): { hour: WindHour; index: number; fraction: number } | null {

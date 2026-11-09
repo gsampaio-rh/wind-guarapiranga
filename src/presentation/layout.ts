@@ -50,6 +50,8 @@ export function syncHudPadding(map: MapView, elements: PaddingElements): void {
 export type DockElements = {
   legend: HTMLElement;
   dockButtons: HTMLButtonElement[];
+  satelliteHiresButton: HTMLButtonElement;
+  buildings3dButton: HTMLButtonElement;
 };
 
 export function setViewModeChrome(map: MapView, mode: ViewMode, exaggeration: number, elements: DockElements): void {
@@ -58,5 +60,8 @@ export function setViewModeChrome(map: MapView, mode: ViewMode, exaggeration: nu
   for (const button of elements.dockButtons) {
     button.setAttribute("aria-pressed", String(button.dataset.mode === mode));
   }
+  // Cada sub-ícone só tem efeito num modo específico (satélite em HD / prédios 3D), então só aparece junto do modo dele.
+  elements.satelliteHiresButton.hidden = mode !== "satellite";
+  elements.buildings3dButton.hidden = mode !== "map";
   placeSpeedScale();
 }

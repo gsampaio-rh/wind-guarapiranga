@@ -1,5 +1,6 @@
 import type { WindDay } from "../../domain/wind/series";
-import { extremeHour, sampleSeries, sampleWeather } from "../../domain/wind/series";
+import { extremeHour, interpolateValidation, sampleSeries, sampleWeather } from "../../domain/wind/series";
+import type { WindHour } from "../../domain/wind/catalog";
 import {
   formatCelsius,
   formatFrom,
@@ -14,6 +15,7 @@ export type DayPanelElements = {
   dayName: HTMLElement;
   dayWhen: HTMLElement;
   dayWind: HTMLElement;
+  dayWindInmet: HTMLElement;
   dayDir: HTMLElement;
   dayGust: HTMLElement;
   dayTemp: HTMLElement;
@@ -56,7 +58,13 @@ export function mountDayPicker(container: HTMLElement, days: WindDay[], selected
   }
 }
 
-export function renderDayPanel(elements: DayPanelElements, day: WindDay, hour: number, gustsOn: boolean): void {
+export function renderDayPanel(
+  elements: DayPanelElements,
+  day: WindDay,
+  hour: number,
+  gustsOn: boolean,
+  inmetHours?: (WindHour | null)[],
+): void {
   if (!day.horas) return;
   const hours = day.horas;
   const sample = sampleSeries(day, hour);
@@ -84,15 +92,29 @@ export function renderDayPanel(elements: DayPanelElements, day: WindDay, hour: n
   elements.dayRainSum.textContent = formatMillimetres(rain);
   elements.dayField.textContent = fieldSentence(day, hour, gustsOn);
   elements.flowNote.textContent = gustsOn
-    ? "Alguns traços, de vez em quando, ficam vermelhos, sobem até a rajada da hora e voltam. Os outros seguem brancos, no vento constante."
-    : "O traço mostra o vento desta hora, igual em todo o lago, e aponta para onde ele vai.";
+    ? "O traço mostra o vento desta hora e aponta para onde ele vai. A cor segue a escala fraco→forte; alguns traços, de vez em quando, aceleram até a rajada da hora e esquentam de cor, depois voltam."
+    : "O traço mostra o vento desta hora, igual em todo o lago, e aponta para onde ele vai. A cor segue a escala fraco→forte.";
   elements.dayChart.setAttribute("aria-valuenow", String(Math.floor(hour)));
   elements.dayChart.setAttribute("aria-valuetext", formatHour(hour));
+  renderInmetReadout(elements.dayWindInmet, inmetHours, hour);
+}
+
+function renderInmetReadout(element: HTMLElement, inmetHours: (WindHour | null)[] | undefined, hour: number): void {
+  if (!inmetHours) {
+    element.hidden = true;
+    element.textContent = "";
+    return;
+  }
+  element.hidden = false;
+  const observed = interpolateValidation(inmetHours, hour);
+  element.textContent = observed
+    ? `INMET (observado, estação Interlagos): ${formatKnots(observed.velocidade)} · ${formatFrom(observed.direcao)}`
+    : "INMET (observado, estação Interlagos): sem leitura nesta hora.";
 }
 
 function fieldSentence(day: WindDay, hour: number, gustsOn: boolean): string {
   const regional = sampleSeries(day, hour);
   const base = `O vento é o mesmo em todo o lago: ${formatKnots(regional.velocidade)}, ${formatFrom(regional.direcao)}. O traço aponta para onde ele vai.`;
   if (!gustsOn) return base;
-  return `${base} Alguns traços ficam vermelhos até a rajada de ${formatKnots(regional.rajada)} e voltam.`;
+  return `${base} Alguns traços aceleram até a rajada de ${formatKnots(regional.rajada)} e voltam, esquentando de cor na escala fraco→forte.`;
 }

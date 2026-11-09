@@ -371,6 +371,22 @@ input[type="range"] {
   margin-bottom: 0;
 }
 
+.model-toggle {
+  margin-top: 12px;
+}
+
+.model-toggle:first-child {
+  margin-top: 0;
+}
+
+.model-toggle button {
+  width: 100%;
+}
+
+.model-toggle .help {
+  margin-top: 4px;
+}
+
 button:disabled {
   opacity: 0.45;
   cursor: default;
@@ -701,41 +717,60 @@ button:disabled {
   font-variant-numeric: tabular-nums;
 }
 
-#gust-legend {
+#speed-color-legend {
   display: flex;
-  align-items: center;
-  gap: 14px;
+  flex-direction: column;
+  gap: 4px;
   min-height: 44px;
   padding: 8px 12px;
   border-radius: 16px;
   background: rgba(8, 14, 12, 0.72);
   border: 1px solid rgba(255, 255, 255, 0.16);
-  color: #f7faf7;
   font-size: 13px;
-  backdrop-filter: blur(18px) saturate(1.15);
-  -webkit-backdrop-filter: blur(18px) saturate(1.15);
+  color: rgba(247, 250, 247, 0.88);
 }
 
-#gust-legend[hidden] {
+#speed-color-legend[hidden] {
   display: none;
 }
 
-#gust-legend span {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.gust-swatch {
-  width: 22px;
-  height: 3px;
+.speed-color-bar {
+  width: 130px;
+  height: 6px;
   border-radius: 999px;
-  background: #fff;
+  background: linear-gradient(
+    90deg,
+    rgb(232, 240, 230) 0%,
+    rgb(163, 217, 158) 19%,
+    rgb(99, 191, 92) 38%,
+    rgb(230, 199, 60) 58%,
+    rgb(230, 126, 40) 77%,
+    rgb(214, 48, 39) 100%
+  );
 }
 
-.gust-swatch.is-gust {
-  background: #ff2a20;
+.speed-color-ticks {
+  position: relative;
+  display: block;
+  width: 130px;
+  height: 14px;
+  font-size: 11px;
+  color: rgba(247, 250, 247, 0.72);
+  font-variant-numeric: tabular-nums;
 }
+
+.speed-color-ticks span {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+}
+
+.speed-color-ticks span:nth-child(1) { left: 0; transform: none; }
+.speed-color-ticks span:nth-child(2) { left: 19%; }
+.speed-color-ticks span:nth-child(3) { left: 38%; }
+.speed-color-ticks span:nth-child(4) { left: 58%; }
+.speed-color-ticks span:nth-child(5) { left: 77%; }
+.speed-color-ticks span:nth-child(6) { left: 100%; transform: translateX(-100%); }
 
 #dock {
   position: absolute;
@@ -780,6 +815,75 @@ button:disabled {
   background: rgba(255, 255, 255, 0.14);
   border-color: transparent;
   color: #f7faf7;
+}
+
+.icon-dock-row.dock-row {
+  gap: 2px;
+}
+
+.icon-dock-row button.icon-toggle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  min-height: 40px;
+  padding: 8px;
+}
+
+.icon-dock-row button.icon-toggle::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  padding: 5px 9px;
+  border-radius: 8px;
+  background: rgba(8, 14, 12, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #f7faf7;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.12s ease, transform 0.12s ease;
+  z-index: 5;
+}
+
+.icon-dock-row button.icon-toggle:first-child::after {
+  left: 0;
+  transform: translateY(4px);
+}
+
+.icon-dock-row button.icon-toggle:first-child:hover::after,
+.icon-dock-row button.icon-toggle:first-child:focus-visible::after {
+  transform: translateY(0);
+}
+
+.icon-dock-row button.icon-toggle:hover::after,
+.icon-dock-row button.icon-toggle:focus-visible::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.icon-dock-row button.icon-toggle svg {
+  width: 20px;
+  height: 20px;
+}
+
+.icon-dock-row button.icon-toggle-all {
+  margin-right: 6px;
+  border-right: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 12px 0 0 12px;
+}
+
+.icon-dock-row button.icon-toggle-all[aria-pressed="true"] {
+  color: #8fd6a8;
+}
+
+.icon-dock-row button.icon-toggle[aria-pressed="mixed"] {
+  background: rgba(143, 214, 168, 0.22);
+  color: #8fd6a8;
 }
 
 .minimap-north {
@@ -858,14 +962,10 @@ button:disabled {
     max-height: 28dvh;
   }
 
-  body:has(#gust-legend:not([hidden])) #timebar {
-    bottom: 168px;
-  }
-
   #timebar {
     left: 12px;
     right: 132px;
-    bottom: 124px;
+    bottom: 168px;
     width: auto;
     max-width: none;
     margin-inline: 0;

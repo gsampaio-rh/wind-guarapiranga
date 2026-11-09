@@ -1,0 +1,108 @@
+{
+  "norte": [
+    {
+      "velocidade": 1.4,
+      "direcao": 0,
+      "rajada": 7
+    },
+    {
+      "velocidade": 0.8,
+      "direcao": 8,
+      "rajada": 6.8
+    },
+    {
+      "velocidade": 2.3,
+      "direcao": 337,
+      "rajada": 8.2
+    },
+    {
+      "velocidade": 1.9,
+      "direcao": 346,
+      "rajada": 6.8
+    },
+    {
+      "velocidade": 1.9,
+      "direcao": 330,
+      "rajada": 6
+    },
+    {
+      "velocidade": 1.2,
+      "direcao": 321,
+      "rajada": 5.6
+    },
+    {
+      "velocidade": 1.4,
+      "direcao": 326,
+      "rajada": 7
+    },
+    {
+      "velocidade": 1.7,
+      "direcao": 337,
+      "rajada": 6.2
+    },
+    {
+      "velocidade": 3.7,
+      "direcao": 345,
+      "rajada": 9.3
+    },
+    {
+      "velocidade": 4.7,
+      "direcao": 339,
+      "rajada": 14.2
+    },
+    {
+      "velocidade": 6,
+      "direcao": 338,
+      "rajada": 17.3
+    },
+    {
+      "velocidade": 4.9,
+      "direcao": 336,
+      "rajada": 16.7
+    },
+    {
+      "velocidade": 6.4,
+      "direcao": 331,
+      "rajada": 18.5
+    },
+    {
+      "velocidade": 6.6,
+      "direcao": 314,
+      "rajada": 19.6
+    },
+    {
+      "velocidade": 9.7,
+      "direcao": 311,
+      "rajada": 25.5
+    },
+    {
+      "velocidade": 9.1,
+      "direcao": 312,
+      "rajada": 25.5
+    },
+    {
+      "velocidade": 10.1,
+      "direcao": 316,
+      "rajada": 26.4
+    },
+    {
+      "velocidade": 8.7,
+      "direcao": 320,
+      "rajada": 26.4
+    },
+    {
+      "velocidade": 4.3,
+      "direcao": 312,
+      "rajada": 19.8
+    },
+    {
+      "velocidade": 2.9,
+      "direcao": 315,
+      "rajada": 10.1
+    },
+    null,
+    null,
+    null,
+    null
+  ]
+}

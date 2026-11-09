@@ -1,0 +1,1498 @@
+[
+  {
+    "id": "brisa-sudeste",
+    "nome": "Brisa de sudeste",
+    "data": "2026-04-11",
+    "modelo": "best_match",
+    "pontos": {
+      "barragem": [
+        {
+          "velocidade": 3.4,
+          "direcao": 115,
+          "rajada": 7.8
+        },
+        {
+          "velocidade": 2.8,
+          "direcao": 122,
+          "rajada": 7.4
+        },
+        {
+          "velocidade": 2.7,
+          "direcao": 113,
+          "rajada": 5.8
+        },
+        {
+          "velocidade": 3.8,
+          "direcao": 111,
+          "rajada": 6.4
+        },
+        {
+          "velocidade": 3.6,
+          "direcao": 116,
+          "rajada": 7.6
+        },
+        {
+          "velocidade": 3.9,
+          "direcao": 110,
+          "rajada": 8
+        },
+        {
+          "velocidade": 3.6,
+          "direcao": 107,
+          "rajada": 8
+        },
+        {
+          "velocidade": 4.1,
+          "direcao": 112,
+          "rajada": 8
+        },
+        {
+          "velocidade": 3.9,
+          "direcao": 104,
+          "rajada": 10.3
+        },
+        {
+          "velocidade": 5.5,
+          "direcao": 98,
+          "rajada": 13
+        },
+        {
+          "velocidade": 7.3,
+          "direcao": 90,
+          "rajada": 17.9
+        },
+        {
+          "velocidade": 6.8,
+          "direcao": 94,
+          "rajada": 18.9
+        },
+        {
+          "velocidade": 6.4,
+          "direcao": 103,
+          "rajada": 17.9
+        },
+        {
+          "velocidade": 7.5,
+          "direcao": 133,
+          "rajada": 19.4
+        },
+        {
+          "velocidade": 7.4,
+          "direcao": 132,
+          "rajada": 20.2
+        },
+        {
+          "velocidade": 6.9,
+          "direcao": 122,
+          "rajada": 18.9
+        },
+        {
+          "velocidade": 7.9,
+          "direcao": 135,
+          "rajada": 19
+        },
+        {
+          "velocidade": 7.8,
+          "direcao": 137,
+          "rajada": 19.4
+        },
+        {
+          "velocidade": 6.7,
+          "direcao": 134,
+          "rajada": 19.4
+        },
+        {
+          "velocidade": 5.8,
+          "direcao": 130,
+          "rajada": 15.2
+        },
+        {
+          "velocidade": 5.8,
+          "direcao": 125,
+          "rajada": 13.8
+        },
+        {
+          "velocidade": 5.2,
+          "direcao": 124,
+          "rajada": 13
+        },
+        {
+          "velocidade": 4.1,
+          "direcao": 115,
+          "rajada": 11.3
+        },
+        {
+          "velocidade": 3.3,
+          "direcao": 114,
+          "rajada": 9.1
+        }
+      ],
+      "amores": [
+        {
+          "velocidade": 3.4,
+          "direcao": 115,
+          "rajada": 7.8
+        },
+        {
+          "velocidade": 2.8,
+          "direcao": 122,
+          "rajada": 7.4
+        },
+        {
+          "velocidade": 2.7,
+          "direcao": 113,
+          "rajada": 5.8
+        },
+        {
+          "velocidade": 3.8,
+          "direcao": 111,
+          "rajada": 6.4
+        },
+        {
+          "velocidade": 3.6,
+          "direcao": 116,
+          "rajada": 7.6
+        },
+        {
+          "velocidade": 3.9,
+          "direcao": 110,
+          "rajada": 8
+        },
+        {
+          "velocidade": 3.6,
+          "direcao": 107,
+          "rajada": 8
+        },
+        {
+          "velocidade": 4.1,
+          "direcao": 112,
+          "rajada": 8
+        },
+        {
+          "velocidade": 3.9,
+          "direcao": 104,
+          "rajada": 10.3
+        },
+        {
+          "velocidade": 5.5,
+          "direcao": 98,
+          "rajada": 13
+        },
+        {
+          "velocidade": 7.3,
+          "direcao": 90,
+          "rajada": 17.9
+        },
+        {
+          "velocidade": 6.8,
+          "direcao": 94,
+          "rajada": 18.9
+        },
+        {
+          "velocidade": 6.4,
+          "direcao": 103,
+          "rajada": 17.9
+        },
+        {
+          "velocidade": 7.5,
+          "direcao": 133,
+          "rajada": 19.4
+        },
+        {
+          "velocidade": 7.4,
+          "direcao": 132,
+          "rajada": 20.2
+        },
+        {
+          "velocidade": 6.9,
+          "direcao": 122,
+          "rajada": 18.9
+        },
+        {
+          "velocidade": 7.9,
+          "direcao": 135,
+          "rajada": 19
+        },
+        {
+          "velocidade": 7.8,
+          "direcao": 137,
+          "rajada": 19.4
+        },
+        {
+          "velocidade": 6.7,
+          "direcao": 134,
+          "rajada": 19.4
+        },
+        {
+          "velocidade": 5.8,
+          "direcao": 130,
+          "rajada": 15.2
+        },
+        {
+          "velocidade": 5.8,
+          "direcao": 125,
+          "rajada": 13.8
+        },
+        {
+          "velocidade": 5.2,
+          "direcao": 124,
+          "rajada": 13
+        },
+        {
+          "velocidade": 4.1,
+          "direcao": 115,
+          "rajada": 11.3
+        },
+        {
+          "velocidade": 3.3,
+          "direcao": 114,
+          "rajada": 9.1
+        }
+      ],
+      "sul": [
+        {
+          "velocidade": 3,
+          "direcao": 117,
+          "rajada": 7.8
+        },
+        {
+          "velocidade": 2.4,
+          "direcao": 130,
+          "rajada": 7
+        },
+        {
+          "velocidade": 2.8,
+          "direcao": 126,
+          "rajada": 6.2
+        },
+        {
+          "velocidade": 4.2,
+          "direcao": 115,
+          "rajada": 7.2
+        },
+        {
+          "velocidade": 3.1,
+          "direcao": 110,
+          "rajada": 7.8
+        },
+        {
+          "velocidade": 3.3,
+          "direcao": 107,
+          "rajada": 7.4
+        },
+        {
+          "velocidade": 3,
+          "direcao": 115,
+          "rajada": 7.6
+        },
+        {
+          "velocidade": 3.7,
+          "direcao": 118,
+          "rajada": 8.2
+        },
+        {
+          "velocidade": 3.8,
+          "direcao": 108,
+          "rajada": 9.3
+        },
+        {
+          "velocidade": 5.9,
+          "direcao": 101,
+          "rajada": 12.6
+        },
+        {
+          "velocidade": 7.3,
+          "direcao": 94,
+          "rajada": 16.7
+        },
+        {
+          "velocidade": 7.4,
+          "direcao": 92,
+          "rajada": 18.5
+        },
+        {
+          "velocidade": 7,
+          "direcao": 106,
+          "rajada": 17.9
+        },
+        {
+          "velocidade": 7.9,
+          "direcao": 131,
+          "rajada": 18.5
+        },
+        {
+          "velocidade": 6.9,
+          "direcao": 126,
+          "rajada": 18.7
+        },
+        {
+          "velocidade": 6.7,
+          "direcao": 118,
+          "rajada": 16.7
+        },
+        {
+          "velocidade": 7.8,
+          "direcao": 127,
+          "rajada": 17.9
+        },
+        {
+          "velocidade": 7.9,
+          "direcao": 131,
+          "rajada": 17.9
+        },
+        {
+          "velocidade": 7.1,
+          "direcao": 133,
+          "rajada": 18.7
+        },
+        {
+          "velocidade": 6.3,
+          "direcao": 134,
+          "rajada": 14.8
+        },
+        {
+          "velocidade": 6.6,
+          "direcao": 129,
+          "rajada": 14
+        },
+        {
+          "velocidade": 6.2,
+          "direcao": 130,
+          "rajada": 13.8
+        },
+        {
+          "velocidade": 5.3,
+          "direcao": 123,
+          "rajada": 13
+        },
+        {
+          "velocidade": 4.2,
+          "direcao": 116,
+          "rajada": 11.7
+        }
+      ]
+    }
+  },
+  {
+    "id": "norte",
+    "nome": "Norte",
+    "data": "2026-08-08",
+    "modelo": "best_match",
+    "pontos": {
+      "barragem": [
+        {
+          "velocidade": 3.1,
+          "direcao": 338,
+          "rajada": 9.5
+        },
+        {
+          "velocidade": 1.8,
+          "direcao": 295,
+          "rajada": 6.6
+        },
+        {
+          "velocidade": 2.5,
+          "direcao": 329,
+          "rajada": 5.6
+        },
+        {
+          "velocidade": 4.6,
+          "direcao": 344,
+          "rajada": 9.5
+        },
+        {
+          "velocidade": 3.7,
+          "direcao": 355,
+          "rajada": 9.1
+        },
+        {
+          "velocidade": 4.3,
+          "direcao": 9,
+          "rajada": 8.9
+        },
+        {
+          "velocidade": 3.7,
+          "direcao": 335,
+          "rajada": 9.3
+        },
+        {
+          "velocidade": 2,
+          "direcao": 325,
+          "rajada": 7.4
+        },
+        {
+          "velocidade": 4,
+          "direcao": 335,
+          "rajada": 9.1
+        },
+        {
+          "velocidade": 3.7,
+          "direcao": 357,
+          "rajada": 12.4
+        },
+        {
+          "velocidade": 4.6,
+          "direcao": 352,
+          "rajada": 15.2
+        },
+        {
+          "velocidade": 6.6,
+          "direcao": 342,
+          "rajada": 17.3
+        },
+        {
+          "velocidade": 7.5,
+          "direcao": 337,
+          "rajada": 19.2
+        },
+        {
+          "velocidade": 8.5,
+          "direcao": 322,
+          "rajada": 28.2
+        },
+        {
+          "velocidade": 9.8,
+          "direcao": 318,
+          "rajada": 23.1
+        },
+        {
+          "velocidade": 8.8,
+          "direcao": 318,
+          "rajada": 24.5
+        },
+        {
+          "velocidade": 9.9,
+          "direcao": 309,
+          "rajada": 25.9
+        },
+        {
+          "velocidade": 8.4,
+          "direcao": 310,
+          "rajada": 22.5
+        },
+        {
+          "velocidade": 8,
+          "direcao": 317,
+          "rajada": 19
+        },
+        {
+          "velocidade": 7.7,
+          "direcao": 311,
+          "rajada": 17.9
+        },
+        {
+          "velocidade": 8.6,
+          "direcao": 318,
+          "rajada": 19.4
+        },
+        {
+          "velocidade": 6.5,
+          "direcao": 319,
+          "rajada": 19
+        },
+        {
+          "velocidade": 5.5,
+          "direcao": 320,
+          "rajada": 14
+        },
+        {
+          "velocidade": 4.3,
+          "direcao": 333,
+          "rajada": 11.9
+        }
+      ],
+      "amores": [
+        {
+          "velocidade": 3.1,
+          "direcao": 338,
+          "rajada": 9.5
+        },
+        {
+          "velocidade": 1.8,
+          "direcao": 295,
+          "rajada": 6.6
+        },
+        {
+          "velocidade": 2.5,
+          "direcao": 329,
+          "rajada": 5.6
+        },
+        {
+          "velocidade": 4.6,
+          "direcao": 344,
+          "rajada": 9.5
+        },
+        {
+          "velocidade": 3.7,
+          "direcao": 355,
+          "rajada": 9.1
+        },
+        {
+          "velocidade": 4.3,
+          "direcao": 9,
+          "rajada": 8.9
+        },
+        {
+          "velocidade": 3.7,
+          "direcao": 335,
+          "rajada": 9.3
+        },
+        {
+          "velocidade": 2,
+          "direcao": 325,
+          "rajada": 7.4
+        },
+        {
+          "velocidade": 4,
+          "direcao": 335,
+          "rajada": 9.1
+        },
+        {
+          "velocidade": 3.7,
+          "direcao": 357,
+          "rajada": 12.4
+        },
+        {
+          "velocidade": 4.6,
+          "direcao": 352,
+          "rajada": 15.2
+        },
+        {
+          "velocidade": 6.6,
+          "direcao": 342,
+          "rajada": 17.3
+        },
+        {
+          "velocidade": 7.5,
+          "direcao": 337,
+          "rajada": 19.2
+        },
+        {
+          "velocidade": 8.5,
+          "direcao": 322,
+          "rajada": 28.2
+        },
+        {
+          "velocidade": 9.8,
+          "direcao": 318,
+          "rajada": 23.1
+        },
+        {
+          "velocidade": 8.8,
+          "direcao": 318,
+          "rajada": 24.5
+        },
+        {
+          "velocidade": 9.9,
+          "direcao": 309,
+          "rajada": 25.9
+        },
+        {
+          "velocidade": 8.4,
+          "direcao": 310,
+          "rajada": 22.5
+        },
+        {
+          "velocidade": 8,
+          "direcao": 317,
+          "rajada": 19
+        },
+        {
+          "velocidade": 7.7,
+          "direcao": 311,
+          "rajada": 17.9
+        },
+        {
+          "velocidade": 8.6,
+          "direcao": 318,
+          "rajada": 19.4
+        },
+        {
+          "velocidade": 6.5,
+          "direcao": 319,
+          "rajada": 19
+        },
+        {
+          "velocidade": 5.5,
+          "direcao": 320,
+          "rajada": 14
+        },
+        {
+          "velocidade": 4.3,
+          "direcao": 333,
+          "rajada": 11.9
+        }
+      ],
+      "sul": [
+        {
+          "velocidade": 3.3,
+          "direcao": 337,
+          "rajada": 10.3
+        },
+        {
+          "velocidade": 1.6,
+          "direcao": 317,
+          "rajada": 6.6
+        },
+        {
+          "velocidade": 3.1,
+          "direcao": 338,
+          "rajada": 5.8
+        },
+        {
+          "velocidade": 4.6,
+          "direcao": 344,
+          "rajada": 9.3
+        },
+        {
+          "velocidade": 4.3,
+          "direcao": 344,
+          "rajada": 8.6
+        },
+        {
+          "velocidade": 4.8,
+          "direcao": 1,
+          "rajada": 9.7
+        },
+        {
+          "velocidade": 4.4,
+          "direcao": 345,
+          "rajada": 9.7
+        },
+        {
+          "velocidade": 3.3,
+          "direcao": 350,
+          "rajada": 8.6
+        },
+        {
+          "velocidade": 5.3,
+          "direcao": 350,
+          "rajada": 10.3
+        },
+        {
+          "velocidade": 5.6,
+          "direcao": 357,
+          "rajada": 15.2
+        },
+        {
+          "velocidade": 4.9,
+          "direcao": 354,
+          "rajada": 15.9
+        },
+        {
+          "velocidade": 7.8,
+          "direcao": 346,
+          "rajada": 18.5
+        },
+        {
+          "velocidade": 8.1,
+          "direcao": 341,
+          "rajada": 19.2
+        },
+        {
+          "velocidade": 9.3,
+          "direcao": 328,
+          "rajada": 29
+        },
+        {
+          "velocidade": 11,
+          "direcao": 320,
+          "rajada": 29.2
+        },
+        {
+          "velocidade": 8.4,
+          "direcao": 322,
+          "rajada": 24.7
+        },
+        {
+          "velocidade": 10.1,
+          "direcao": 313,
+          "rajada": 24.7
+        },
+        {
+          "velocidade": 7.8,
+          "direcao": 313,
+          "rajada": 21
+        },
+        {
+          "velocidade": 8.7,
+          "direcao": 320,
+          "rajada": 17.7
+        },
+        {
+          "velocidade": 8.7,
+          "direcao": 315,
+          "rajada": 18.3
+        },
+        {
+          "velocidade": 9.5,
+          "direcao": 322,
+          "rajada": 19.8
+        },
+        {
+          "velocidade": 7.6,
+          "direcao": 318,
+          "rajada": 19.6
+        },
+        {
+          "velocidade": 6.8,
+          "direcao": 319,
+          "rajada": 15.2
+        },
+        {
+          "velocidade": 5.7,
+          "direcao": 329,
+          "rajada": 13.8
+        }
+      ]
+    }
+  },
+  {
+    "id": "vento-forte",
+    "nome": "Vento forte",
+    "data": "2025-11-08",
+    "modelo": "best_match",
+    "pontos": {
+      "barragem": [
+        {
+          "velocidade": 3.7,
+          "direcao": 351,
+          "rajada": 8.7
+        },
+        {
+          "velocidade": 4.1,
+          "direcao": 316,
+          "rajada": 8
+        },
+        {
+          "velocidade": 7,
+          "direcao": 321,
+          "rajada": 14.2
+        },
+        {
+          "velocidade": 9.2,
+          "direcao": 307,
+          "rajada": 17.3
+        },
+        {
+          "velocidade": 7.5,
+          "direcao": 329,
+          "rajada": 21.4
+        },
+        {
+          "velocidade": 8.3,
+          "direcao": 324,
+          "rajada": 17.7
+        },
+        {
+          "velocidade": 8.3,
+          "direcao": 327,
+          "rajada": 23.9
+        },
+        {
+          "velocidade": 10.8,
+          "direcao": 330,
+          "rajada": 23.7
+        },
+        {
+          "velocidade": 10.3,
+          "direcao": 327,
+          "rajada": 26.2
+        },
+        {
+          "velocidade": 8.1,
+          "direcao": 326,
+          "rajada": 26.8
+        },
+        {
+          "velocidade": 16.4,
+          "direcao": 314,
+          "rajada": 37.5
+        },
+        {
+          "velocidade": 13.6,
+          "direcao": 317,
+          "rajada": 37.3
+        },
+        {
+          "velocidade": 13.7,
+          "direcao": 315,
+          "rajada": 33.2
+        },
+        {
+          "velocidade": 11.8,
+          "direcao": 317,
+          "rajada": 31.7
+        },
+        {
+          "velocidade": 11.5,
+          "direcao": 305,
+          "rajada": 27.8
+        },
+        {
+          "velocidade": 9.6,
+          "direcao": 301,
+          "rajada": 27
+        },
+        {
+          "velocidade": 8.5,
+          "direcao": 300,
+          "rajada": 22.4
+        },
+        {
+          "velocidade": 8.5,
+          "direcao": 292,
+          "rajada": 20.4
+        },
+        {
+          "velocidade": 9.6,
+          "direcao": 192,
+          "rajada": 21.4
+        },
+        {
+          "velocidade": 9.9,
+          "direcao": 188,
+          "rajada": 22.5
+        },
+        {
+          "velocidade": 9.1,
+          "direcao": 197,
+          "rajada": 23.5
+        },
+        {
+          "velocidade": 6.4,
+          "direcao": 183,
+          "rajada": 24.7
+        },
+        {
+          "velocidade": 8.4,
+          "direcao": 181,
+          "rajada": 21
+        },
+        {
+          "velocidade": 7.2,
+          "direcao": 174,
+          "rajada": 20.6
+        }
+      ],
+      "amores": [
+        {
+          "velocidade": 3.7,
+          "direcao": 351,
+          "rajada": 8.7
+        },
+        {
+          "velocidade": 4.1,
+          "direcao": 316,
+          "rajada": 8
+        },
+        {
+          "velocidade": 7,
+          "direcao": 321,
+          "rajada": 14.2
+        },
+        {
+          "velocidade": 9.2,
+          "direcao": 307,
+          "rajada": 17.3
+        },
+        {
+          "velocidade": 7.5,
+          "direcao": 329,
+          "rajada": 21.4
+        },
+        {
+          "velocidade": 8.3,
+          "direcao": 324,
+          "rajada": 17.7
+        },
+        {
+          "velocidade": 8.3,
+          "direcao": 327,
+          "rajada": 23.9
+        },
+        {
+          "velocidade": 10.8,
+          "direcao": 330,
+          "rajada": 23.7
+        },
+        {
+          "velocidade": 10.3,
+          "direcao": 327,
+          "rajada": 26.2
+        },
+        {
+          "velocidade": 8.1,
+          "direcao": 326,
+          "rajada": 26.8
+        },
+        {
+          "velocidade": 16.4,
+          "direcao": 314,
+          "rajada": 37.5
+        },
+        {
+          "velocidade": 13.6,
+          "direcao": 317,
+          "rajada": 37.3
+        },
+        {
+          "velocidade": 13.7,
+          "direcao": 315,
+          "rajada": 33.2
+        },
+        {
+          "velocidade": 11.8,
+          "direcao": 317,
+          "rajada": 31.7
+        },
+        {
+          "velocidade": 11.5,
+          "direcao": 305,
+          "rajada": 27.8
+        },
+        {
+          "velocidade": 9.6,
+          "direcao": 301,
+          "rajada": 27
+        },
+        {
+          "velocidade": 8.5,
+          "direcao": 300,
+          "rajada": 22.4
+        },
+        {
+          "velocidade": 8.5,
+          "direcao": 292,
+          "rajada": 20.4
+        },
+        {
+          "velocidade": 9.6,
+          "direcao": 192,
+          "rajada": 21.4
+        },
+        {
+          "velocidade": 9.9,
+          "direcao": 188,
+          "rajada": 22.5
+        },
+        {
+          "velocidade": 9.1,
+          "direcao": 197,
+          "rajada": 23.5
+        },
+        {
+          "velocidade": 6.4,
+          "direcao": 183,
+          "rajada": 24.7
+        },
+        {
+          "velocidade": 8.4,
+          "direcao": 181,
+          "rajada": 21
+        },
+        {
+          "velocidade": 7.2,
+          "direcao": 174,
+          "rajada": 20.6
+        }
+      ],
+      "sul": [
+        {
+          "velocidade": 4.2,
+          "direcao": 349,
+          "rajada": 8.9
+        },
+        {
+          "velocidade": 4.6,
+          "direcao": 310,
+          "rajada": 7.8
+        },
+        {
+          "velocidade": 7.4,
+          "direcao": 321,
+          "rajada": 13.8
+        },
+        {
+          "velocidade": 10.4,
+          "direcao": 309,
+          "rajada": 15.9
+        },
+        {
+          "velocidade": 7.7,
+          "direcao": 327,
+          "rajada": 22.5
+        },
+        {
+          "velocidade": 8.5,
+          "direcao": 332,
+          "rajada": 19
+        },
+        {
+          "velocidade": 8.1,
+          "direcao": 329,
+          "rajada": 17.5
+        },
+        {
+          "velocidade": 11.7,
+          "direcao": 329,
+          "rajada": 22.5
+        },
+        {
+          "velocidade": 11.3,
+          "direcao": 327,
+          "rajada": 24.3
+        },
+        {
+          "velocidade": 9.5,
+          "direcao": 331,
+          "rajada": 29.7
+        },
+        {
+          "velocidade": 17.6,
+          "direcao": 318,
+          "rajada": 36.3
+        },
+        {
+          "velocidade": 13.7,
+          "direcao": 319,
+          "rajada": 37.3
+        },
+        {
+          "velocidade": 15.1,
+          "direcao": 314,
+          "rajada": 35.4
+        },
+        {
+          "velocidade": 13.4,
+          "direcao": 316,
+          "rajada": 32.5
+        },
+        {
+          "velocidade": 12.2,
+          "direcao": 307,
+          "rajada": 29.4
+        },
+        {
+          "velocidade": 9.7,
+          "direcao": 308,
+          "rajada": 26.6
+        },
+        {
+          "velocidade": 10,
+          "direcao": 303,
+          "rajada": 22
+        },
+        {
+          "velocidade": 7.9,
+          "direcao": 279,
+          "rajada": 21.6
+        },
+        {
+          "velocidade": 10.3,
+          "direcao": 179,
+          "rajada": 22
+        },
+        {
+          "velocidade": 11.3,
+          "direcao": 192,
+          "rajada": 23.5
+        },
+        {
+          "velocidade": 10.7,
+          "direcao": 199,
+          "rajada": 23.5
+        },
+        {
+          "velocidade": 7.8,
+          "direcao": 186,
+          "rajada": 26.4
+        },
+        {
+          "velocidade": 10.6,
+          "direcao": 179,
+          "rajada": 22
+        },
+        {
+          "velocidade": 9,
+          "direcao": 173,
+          "rajada": 21.8
+        }
+      ]
+    }
+  },
+  {
+    "id": "calmaria",
+    "nome": "Calmaria",
+    "data": "2026-09-26",
+    "modelo": "best_match",
+    "pontos": {
+      "barragem": [
+        {
+          "velocidade": 0.6,
+          "direcao": 171,
+          "rajada": 1.9
+        },
+        {
+          "velocidade": 0.6,
+          "direcao": 189,
+          "rajada": 1.9
+        },
+        {
+          "velocidade": 0.1,
+          "direcao": 180,
+          "rajada": 1.7
+        },
+        {
+          "velocidade": 0.2,
+          "direcao": 117,
+          "rajada": 0.6
+        },
+        {
+          "velocidade": 0.2,
+          "direcao": 90,
+          "rajada": 1.4
+        },
+        {
+          "velocidade": 0.8,
+          "direcao": 36,
+          "rajada": 4.5
+        },
+        {
+          "velocidade": 0.9,
+          "direcao": 27,
+          "rajada": 4.7
+        },
+        {
+          "velocidade": 0.8,
+          "direcao": 14,
+          "rajada": 4.7
+        },
+        {
+          "velocidade": 1.5,
+          "direcao": 32,
+          "rajada": 7
+        },
+        {
+          "velocidade": 1,
+          "direcao": 37,
+          "rajada": 7.8
+        },
+        {
+          "velocidade": 0.7,
+          "direcao": 63,
+          "rajada": 7
+        },
+        {
+          "velocidade": 1.3,
+          "direcao": 58,
+          "rajada": 7.8
+        },
+        {
+          "velocidade": 1.8,
+          "direcao": 9,
+          "rajada": 8.4
+        },
+        {
+          "velocidade": 2.8,
+          "direcao": 331,
+          "rajada": 9.7
+        },
+        {
+          "velocidade": 4.2,
+          "direcao": 307,
+          "rajada": 11.9
+        },
+        {
+          "velocidade": 3.8,
+          "direcao": 308,
+          "rajada": 12.8
+        },
+        {
+          "velocidade": 4.5,
+          "direcao": 306,
+          "rajada": 10.3
+        },
+        {
+          "velocidade": 1.3,
+          "direcao": 297,
+          "rajada": 10.3
+        },
+        {
+          "velocidade": 5.3,
+          "direcao": 155,
+          "rajada": 10.7
+        },
+        {
+          "velocidade": 4.3,
+          "direcao": 144,
+          "rajada": 14.8
+        },
+        {
+          "velocidade": 2,
+          "direcao": 163,
+          "rajada": 9.5
+        },
+        {
+          "velocidade": 2.1,
+          "direcao": 164,
+          "rajada": 4.1
+        },
+        {
+          "velocidade": 2,
+          "direcao": 151,
+          "rajada": 4.5
+        },
+        {
+          "velocidade": 1.6,
+          "direcao": 155,
+          "rajada": 3.5
+        }
+      ],
+      "amores": [
+        {
+          "velocidade": 0.6,
+          "direcao": 171,
+          "rajada": 1.9
+        },
+        {
+          "velocidade": 0.6,
+          "direcao": 189,
+          "rajada": 1.9
+        },
+        {
+          "velocidade": 0.1,
+          "direcao": 180,
+          "rajada": 1.7
+        },
+        {
+          "velocidade": 0.2,
+          "direcao": 117,
+          "rajada": 0.6
+        },
+        {
+          "velocidade": 0.2,
+          "direcao": 90,
+          "rajada": 1.4
+        },
+        {
+          "velocidade": 0.8,
+          "direcao": 36,
+          "rajada": 4.5
+        },
+        {
+          "velocidade": 0.9,
+          "direcao": 27,
+          "rajada": 4.7
+        },
+        {
+          "velocidade": 0.8,
+          "direcao": 14,
+          "rajada": 4.7
+        },
+        {
+          "velocidade": 1.5,
+          "direcao": 32,
+          "rajada": 7
+        },
+        {
+          "velocidade": 1,
+          "direcao": 37,
+          "rajada": 7.8
+        },
+        {
+          "velocidade": 0.7,
+          "direcao": 63,
+          "rajada": 7
+        },
+        {
+          "velocidade": 1.3,
+          "direcao": 58,
+          "rajada": 7.8
+        },
+        {
+          "velocidade": 1.8,
+          "direcao": 9,
+          "rajada": 8.4
+        },
+        {
+          "velocidade": 2.8,
+          "direcao": 331,
+          "rajada": 9.7
+        },
+        {
+          "velocidade": 4.2,
+          "direcao": 307,
+          "rajada": 11.9
+        },
+        {
+          "velocidade": 3.8,
+          "direcao": 308,
+          "rajada": 12.8
+        },
+        {
+          "velocidade": 4.5,
+          "direcao": 306,
+          "rajada": 10.3
+        },
+        {
+          "velocidade": 1.3,
+          "direcao": 297,
+          "rajada": 10.3
+        },
+        {
+          "velocidade": 5.3,
+          "direcao": 155,
+          "rajada": 10.7
+        },
+        {
+          "velocidade": 4.3,
+          "direcao": 144,
+          "rajada": 14.8
+        },
+        {
+          "velocidade": 2,
+          "direcao": 163,
+          "rajada": 9.5
+        },
+        {
+          "velocidade": 2.1,
+          "direcao": 164,
+          "rajada": 4.1
+        },
+        {
+          "velocidade": 2,
+          "direcao": 151,
+          "rajada": 4.5
+        },
+        {
+          "velocidade": 1.6,
+          "direcao": 155,
+          "rajada": 3.5
+        }
+      ],
+      "sul": [
+        {
+          "velocidade": 0.2,
+          "direcao": 207,
+          "rajada": 1.2
+        },
+        {
+          "velocidade": 0.4,
+          "direcao": 214,
+          "rajada": 1.7
+        },
+        {
+          "velocidade": 0.1,
+          "direcao": 270,
+          "rajada": 1.9
+        },
+        {
+          "velocidade": 0.2,
+          "direcao": 63,
+          "rajada": 1.2
+        },
+        {
+          "velocidade": 0.1,
+          "direcao": 180,
+          "rajada": 0.6
+        },
+        {
+          "velocidade": 0.5,
+          "direcao": 349,
+          "rajada": 1.4
+        },
+        {
+          "velocidade": 0.8,
+          "direcao": 339,
+          "rajada": 3.1
+        },
+        {
+          "velocidade": 0.7,
+          "direcao": 23,
+          "rajada": 4.5
+        },
+        {
+          "velocidade": 1.3,
+          "direcao": 42,
+          "rajada": 6.4
+        },
+        {
+          "velocidade": 1.5,
+          "direcao": 32,
+          "rajada": 8
+        },
+        {
+          "velocidade": 1.9,
+          "direcao": 41,
+          "rajada": 8.2
+        },
+        {
+          "velocidade": 2.8,
+          "direcao": 31,
+          "rajada": 9.9
+        },
+        {
+          "velocidade": 3.7,
+          "direcao": 6,
+          "rajada": 11.1
+        },
+        {
+          "velocidade": 4.8,
+          "direcao": 335,
+          "rajada": 12.6
+        },
+        {
+          "velocidade": 6.1,
+          "direcao": 313,
+          "rajada": 14.2
+        },
+        {
+          "velocidade": 5.2,
+          "direcao": 310,
+          "rajada": 14.8
+        },
+        {
+          "velocidade": 4.3,
+          "direcao": 294,
+          "rajada": 12.2
+        },
+        {
+          "velocidade": 2.4,
+          "direcao": 192,
+          "rajada": 9.3
+        },
+        {
+          "velocidade": 6.9,
+          "direcao": 154,
+          "rajada": 13.8
+        },
+        {
+          "velocidade": 3.8,
+          "direcao": 161,
+          "rajada": 14
+        },
+        {
+          "velocidade": 2.7,
+          "direcao": 176,
+          "rajada": 7.2
+        },
+        {
+          "velocidade": 2.7,
+          "direcao": 170,
+          "rajada": 4.9
+        },
+        {
+          "velocidade": 2.3,
+          "direcao": 170,
+          "rajada": 5.2
+        },
+        {
+          "velocidade": 1.3,
+          "direcao": 171,
+          "rajada": 3.9
+        }
+      ]
+    }
+  }
+]

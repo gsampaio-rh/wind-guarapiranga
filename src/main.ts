@@ -4,7 +4,7 @@ import workerUrl from "maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url";
 import { formatRelief } from "./domain/format";
 import { VIEWPOINTS } from "./domain/viewpoints";
 import { createCameraRig } from "./map/cameraRig";
-import { setLabelsEnabled, showTerrain } from "./map/layers";
+import { setBuildings3dEnabled, setLabelsEnabled, setOpenMapTilesEnabled, setSatelliteSource, showTerrain } from "./map/layers";
 import { HILLSHADE_LAYER, INITIAL_EXAGGERATION, RELIEF_SOURCE, hillshadeExaggeration, mapStyle } from "./map/mapStyle";
 import { createMinimap } from "./map/minimap";
 import { required } from "./presentation/dom";
@@ -25,6 +25,9 @@ const minimapEl = required<HTMLElement>("#minimap");
 const markerEl = required<HTMLElement>("#minimap-marker");
 const dockButtons = [...document.querySelectorAll<HTMLButtonElement>("[data-mode]")];
 const labelsButton = required<HTMLButtonElement>("#labels");
+const satelliteHiresButton = required<HTMLButtonElement>("#view-satellite-hires");
+const buildings3dButton = required<HTMLButtonElement>("#view-buildings-3d");
+const openMapTilesButton = required<HTMLButtonElement>("#view-openmaptiles");
 const legend = required<HTMLElement>("#relief-legend");
 const compass = required<HTMLButtonElement>("#compass");
 const hudShell = required<HTMLElement>("#hud-shell");
@@ -70,7 +73,7 @@ map.on("load", () => {
   ready = true;
   window.clearTimeout(failTimer);
   statusEl.classList.add("is-done");
-  setViewModeChrome(map, "map", Number(reliefInput.value), { legend, dockButtons });
+  setViewModeChrome(map, "map", Number(reliefInput.value), { legend, dockButtons, satelliteHiresButton, buildings3dButton });
   syncHudPadding(map, { hud, hudShell });
   requestAnimationFrame(frame);
 });
@@ -128,13 +131,28 @@ for (const button of dockButtons) {
   button.addEventListener("click", () => {
     const mode = button.dataset.mode;
     if (mode !== "map" && mode !== "relief" && mode !== "satellite") return;
-    setViewModeChrome(map, mode, Number(reliefInput.value), { legend, dockButtons });
+    setViewModeChrome(map, mode, Number(reliefInput.value), { legend, dockButtons, satelliteHiresButton, buildings3dButton });
   });
 }
 labelsButton.addEventListener("click", () => {
   const enabled = labelsButton.getAttribute("aria-pressed") !== "true";
   labelsButton.setAttribute("aria-pressed", String(enabled));
   setLabelsEnabled(map, enabled);
+});
+satelliteHiresButton.addEventListener("click", () => {
+  const enabled = satelliteHiresButton.getAttribute("aria-pressed") !== "true";
+  satelliteHiresButton.setAttribute("aria-pressed", String(enabled));
+  setSatelliteSource(map, enabled ? "esri" : "eox");
+});
+buildings3dButton.addEventListener("click", () => {
+  const enabled = buildings3dButton.getAttribute("aria-pressed") !== "true";
+  buildings3dButton.setAttribute("aria-pressed", String(enabled));
+  setBuildings3dEnabled(map, enabled);
+});
+openMapTilesButton.addEventListener("click", () => {
+  const enabled = openMapTilesButton.getAttribute("aria-pressed") !== "true";
+  openMapTilesButton.setAttribute("aria-pressed", String(enabled));
+  setOpenMapTilesEnabled(map, enabled);
 });
 
 let last = performance.now();

@@ -7,12 +7,18 @@
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
-    "test": "vitest run"
+    "test": "vitest run",
+    "data:wind-hires": "node --experimental-strip-types scripts/build-wind-days-hires.mjs",
+    "data:wind-validation": "node --experimental-strip-types scripts/build-wind-validation.mjs",
+    "data:orographic-grid": "node --experimental-strip-types scripts/build-orographic-grid.mjs",
+    "data:curvature-grid": "node --experimental-strip-types scripts/build-curvature-grid.mjs",
+    "data:roughness-grid": "node --experimental-strip-types scripts/build-roughness-grid.mjs"
   },
   "dependencies": {
     "maplibre-gl": "^6.12.0"
   },
   "devDependencies": {
+    "pngjs": "7.0.0",
     "typescript": "^5.9.3",
     "vite": "^7.1.12",
     "vitest": "^3.2.4"
